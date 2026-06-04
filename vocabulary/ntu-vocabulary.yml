@@ -1,0 +1,83 @@
+vocabulary:
+  name: NTU Repository & Research Data Vocabulary
+  description: >-
+    Controlled terms observed across the publicly documented, machine-readable
+    APIs of Nanyang Technological University: DR-NTU (Data) on Dataverse 6.1, and
+    DR-NTU (Digital Repository) on DSpace 7.6.3 with DSpace-CRIS, including its
+    OAI-PMH endpoint. Terms are grounded in live API responses.
+  version: '1.0.0'
+  terms:
+    - term: Dataverse
+      definition: >-
+        The open-source research data repository software (v6.1) powering
+        DR-NTU (Data); also the name of a collection/container of datasets.
+      tags: [dataverse, platform, research-data]
+    - term: Dataset
+      definition: >-
+        A published research data record with a persistent DOI, metadata,
+        version state, and one or more files.
+      tags: [dataverse, object]
+    - term: global_id
+      definition: >-
+        The persistent global identifier of a Dataverse object, typically a DOI
+        such as doi:10.21979/N9/MUULD6.
+      tags: [dataverse, identifier]
+    - term: versionState
+      definition: >-
+        Lifecycle state of a dataset version, e.g. RELEASED or DRAFT.
+      tags: [dataverse, field]
+    - term: DSpace
+      definition: >-
+        The institutional repository software (v7.6.3) powering DR-NTU (Digital
+        Repository), exposing a HAL-based REST API.
+      tags: [dspace, platform, repository]
+    - term: DSpace-CRIS
+      definition: >-
+        The Current Research Information System extension layered on DSpace,
+        adding entity types such as Publication and Person.
+      tags: [dspace, cris]
+    - term: Item
+      definition: >-
+        The core DSpace content object representing a publication, thesis, or
+        final year project, identified by a UUID and a handle.
+      tags: [dspace, object]
+    - term: handle
+      definition: >-
+        A persistent identifier for a repository item in the 10356/ prefix
+        space, e.g. 10356/213929.
+      tags: [dspace, identifier]
+    - term: metadata
+      definition: >-
+        A map of Dublin Core / DSpace-CRIS field keys (e.g. dc.title,
+        dc.contributor.author) to arrays of value objects.
+      tags: [dspace, dublin-core, field]
+    - term: indexableObject
+      definition: >-
+        The concrete repository object (item, collection, community) embedded in
+        a discovery search hit.
+      tags: [dspace, discover]
+    - term: HAL
+      definition: >-
+        Hypertext Application Language; the hypermedia convention used by the
+        DSpace REST API via _embedded and _links.
+      tags: [dspace, hypermedia]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting v2.0, used to
+        harvest metadata records from the repository.
+      tags: [oai-pmh, harvesting, metadata]
+    - term: verb
+      definition: >-
+        The OAI-PMH request parameter selecting the operation, e.g. Identify,
+        ListRecords, GetRecord, ListMetadataFormats.
+      tags: [oai-pmh, parameter]
+    - term: metadataPrefix
+      definition: >-
+        The OAI-PMH metadata format selector, e.g. oai_dc for simple Dublin
+        Core.
+      tags: [oai-pmh, parameter]
+    - term: resumptionToken
+      definition: >-
+        Flow-control token returned in incomplete OAI-PMH list responses to page
+        through large result sets.
+      tags: [oai-pmh, pagination]

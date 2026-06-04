@@ -1,0 +1,209 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Digital Repository) DSpace REST API
+  description: >-
+    Subset of the DSpace 7.6.3 (with DSpace-CRIS) HAL-based REST API as exposed
+    by DR-NTU (Digital Repository of NTU). This description covers the publicly
+    accessible, unauthenticated discovery operations verified against the live
+    deployment at https://dr.ntu.edu.sg/server/api. Responses follow the HAL
+    (Hypertext Application Language) convention with _embedded and _links. The
+    full DSpace 7 REST contract (authenticated CRUD, submission, workflow) is
+    documented upstream at https://wiki.lyrasis.org/display/DSDOC7x/REST+API and
+    is intentionally not duplicated here.
+  version: 7.6.3
+  contact:
+    name: DR-NTU (Digital Repository of NTU)
+    url: https://dr.ntu.edu.sg/home
+servers:
+  - url: https://dr.ntu.edu.sg/server/api
+    description: DR-NTU (Digital Repository) production REST API
+paths:
+  /:
+    get:
+      operationId: getApiRoot
+      summary: Get API root (HAL entry point)
+      description: >-
+        Returns the HAL root document listing all available endpoint links
+        along with DSpace version metadata.
+      tags: [Root]
+      responses:
+        '200':
+          description: HAL root document
+          content:
+            application/hal+json:
+              schema:
+                type: object
+                additionalProperties: true
+  /discover/search/objects:
+    get:
+      operationId: discoverSearchObjects
+      summary: Discover (search) repository objects
+      description: >-
+        Public discovery search over indexed objects (items, collections,
+        communities). Returns a paged HAL search result whose hits embed the
+        matching indexableObject.
+      tags: [Discover]
+      parameters:
+        - name: query
+          in: query
+          description: Full-text query string.
+          schema:
+            type: string
+        - name: dsoType
+          in: query
+          description: Restrict to a DSpace object type.
+          schema:
+            type: string
+            enum: [item, collection, community]
+        - name: scope
+          in: query
+          description: UUID of a community or collection to scope the search to.
+          schema:
+            type: string
+            format: uuid
+        - name: page
+          in: query
+          description: Zero-based page index.
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: size
+          in: query
+          description: Page size.
+          schema:
+            type: integer
+            minimum: 1
+            default: 20
+      responses:
+        '200':
+          description: Paged HAL search result
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/DiscoverSearchResult'
+  /core/items/{uuid}:
+    get:
+      operationId: getItem
+      summary: Get an item by UUID
+      description: >-
+        Returns a single DSpace item resource. Note that on this deployment,
+        retrieving items outside of discovery may require authentication for
+        restricted content.
+      tags: [Items]
+      parameters:
+        - name: uuid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Item resource
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '401':
+          description: Authentication required for this resource
+components:
+  schemas:
+    Item:
+      type: object
+      description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          description: Persistent handle, e.g. 10356/213929.
+        metadata:
+          type: object
+          description: >-
+            Map of metadata field keys (e.g. dc.title, dc.contributor.author) to
+            arrays of value objects.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataValue'
+        inArchive:
+          type: boolean
+        discoverable:
+          type: boolean
+        withdrawn:
+          type: boolean
+        type:
+          type: string
+          example: item
+        uniqueType:
+          type: string
+          example: core.item
+    MetadataValue:
+      type: object
+      properties:
+        value:
+          type: string
+        language:
+          type: string
+          nullable: true
+        authority:
+          type: string
+          nullable: true
+        confidence:
+          type: integer
+          nullable: true
+        place:
+          type: integer
+    DiscoverSearchResult:
+      type: object
+      properties:
+        type:
+          type: string
+          example: discover
+        uniqueType:
+          type: string
+          example: discover.discover
+        _links:
+          type: object
+          additionalProperties: true
+        _embedded:
+          type: object
+          properties:
+            searchResult:
+              type: object
+              properties:
+                _links:
+                  type: object
+                  additionalProperties: true
+                _embedded:
+                  type: object
+                  properties:
+                    objects:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          _embedded:
+                            type: object
+                            properties:
+                              indexableObject:
+                                $ref: '#/components/schemas/Item'
+                page:
+                  $ref: '#/components/schemas/Page'
+    Page:
+      type: object
+      properties:
+        number:
+          type: integer
+        size:
+          type: integer
+        totalPages:
+          type: integer
+        totalElements:
+          type: integer

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://researchdata.ntu.edu.sg/schemas/dataset.json",
+  "title": "DR-NTU (Data) Dataset Search Item",
+  "description": "A dataset item as returned in the data.items array of the Dataverse Search API on DR-NTU (Data).",
+  "type": "object",
+  "required": ["name", "type", "global_id"],
+  "properties": {
+    "name": { "type": "string" },
+    "type": { "type": "string", "enum": ["dataverse", "dataset", "file"] },
+    "url": { "type": "string", "format": "uri" },
+    "global_id": { "type": "string" },
+    "description": { "type": "string" },
+    "published_at": { "type": "string", "format": "date-time" },
+    "publisher": { "type": "string" },
+    "citationHtml": { "type": "string" },
+    "citation": { "type": "string" },
+    "identifier_of_dataverse": { "type": "string" },
+    "name_of_dataverse": { "type": "string" },
+    "storageIdentifier": { "type": "string" },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "subjects": { "type": "array", "items": { "type": "string" } },
+    "fileCount": { "type": "integer", "minimum": 0 },
+    "versionId": { "type": "integer" },
+    "versionState": { "type": "string" },
+    "majorVersion": { "type": "integer" },
+    "minorVersion": { "type": "integer" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "affiliation": { "type": "string" }
+        }
+      }
+    },
+    "authors": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

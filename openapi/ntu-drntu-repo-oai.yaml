@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Digital Repository) OAI-PMH
+  description: >-
+    OpenAPI description of the OAI-PMH 2.0 metadata harvesting endpoint exposed
+    by DR-NTU (Digital Repository of NTU). OAI-PMH is an HTTP GET protocol whose
+    behaviour is selected by the "verb" query parameter; all responses are XML
+    in the http://www.openarchives.org/OAI/2.0/ namespace. Verified against the
+    live Identify response. The protocol itself is specified at
+    https://www.openarchives.org/OAI/openarchivesprotocol.html.
+  version: '2.0'
+  contact:
+    name: DR-NTU (Digital Repository of NTU) Library
+    email: library@ntu.edu.sg
+    url: https://dr.ntu.edu.sg/home
+servers:
+  - url: https://dr.ntu.edu.sg/oai
+    description: DR-NTU OAI-PMH endpoint
+paths:
+  /request:
+    get:
+      operationId: oaiRequest
+      summary: OAI-PMH request dispatcher
+      description: >-
+        Single OAI-PMH endpoint. The "verb" parameter selects the operation
+        (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords,
+        GetRecord). Other parameters depend on the chosen verb.
+      tags: [OAI-PMH]
+      parameters:
+        - name: verb
+          in: query
+          required: true
+          description: The OAI-PMH verb to execute.
+          schema:
+            type: string
+            enum:
+              - Identify
+              - ListMetadataFormats
+              - ListSets
+              - ListIdentifiers
+              - ListRecords
+              - GetRecord
+        - name: identifier
+          in: query
+          description: OAI identifier of a record (GetRecord, ListMetadataFormats).
+          schema:
+            type: string
+          example: oai:dr.ntu.edu.sg:10356/213929
+        - name: metadataPrefix
+          in: query
+          description: Metadata format prefix (ListIdentifiers, ListRecords, GetRecord).
+          schema:
+            type: string
+          example: oai_dc
+        - name: 'set'
+          in: query
+          description: Set spec to selectively harvest.
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: Lower bound for datestamp-based selective harvesting (UTC).
+          schema:
+            type: string
+            format: date-time
+        - name: until
+          in: query
+          description: Upper bound for datestamp-based selective harvesting (UTC).
+          schema:
+            type: string
+            format: date-time
+        - name: resumptionToken
+          in: query
+          description: Flow control token from a previous incomplete list response.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: An OAI-PMH XML response document.
+          content:
+            text/xml:
+              schema:
+                type: string
+                description: >-
+                  XML document rooted at OAI-PMH containing responseDate,
+                  request, and a verb-specific element. For Identify this
+                  includes repositoryName, baseURL, protocolVersion,
+                  earliestDatestamp, deletedRecord, and granularity.
+              example: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/">
+                  <responseDate>2026-06-03T00:00:00Z</responseDate>
+                  <request verb="Identify">https://dr.ntu.edu.sg/oai/request</request>
+                  <Identify>
+                    <repositoryName>DR-NTU (Digital Repository of NTU)</repositoryName>
+                    <baseURL>https://dr.ntu.edu.sg/server/oai/request</baseURL>
+                    <protocolVersion>2.0</protocolVersion>
+                    <adminEmail>library@ntu.edu.sg</adminEmail>
+                    <earliestDatestamp>2008-05-15T00:00:00Z</earliestDatestamp>
+                    <deletedRecord>transient</deletedRecord>
+                    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+                  </Identify>
+                </OAI-PMH>

@@ -47,6 +47,12 @@ apis:
         url: https://guides.dataverse.org/en/latest/api/
       - type: Website
         url: https://researchdata.ntu.edu.sg/
+      - type: OpenAPI
+        url: openapi/ntu-drntu-data.yaml
+      - type: x-json-schema
+        url: json-schema/ntu-dataset-schema.json
+      - type: x-example
+        url: examples/ntu-search-example.json
   - aid: ntu:drntu-repo-rest
     name: DR-NTU (Digital Repository) DSpace REST API
     description: >-
@@ -62,6 +68,12 @@ apis:
         url: https://dr.ntu.edu.sg/home
       - type: Documentation
         url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+      - type: OpenAPI
+        url: openapi/ntu-drntu-repo-rest.yaml
+      - type: x-json-schema
+        url: json-schema/ntu-item-schema.json
+      - type: x-example
+        url: examples/ntu-discover-example.json
   - aid: ntu:drntu-repo-oai
     name: DR-NTU (Digital Repository) OAI-PMH
     description: >-
@@ -76,6 +88,8 @@ apis:
         url: https://dr.ntu.edu.sg/home
       - type: Documentation
         url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+      - type: OpenAPI
+        url: openapi/ntu-drntu-repo-oai.yaml
 common:
   - type: Website
     url: https://www.ntu.edu.sg/
@@ -91,6 +105,12 @@ common:
     url: finops/ntu-finops.yml
   - type: Review
     url: review.yml
+  - type: x-vocabulary
+    url: vocabulary/ntu-vocabulary.yml
+  - type: x-spectral-rules
+    url: rules/ntu-rules.yml
+  - type: x-json-ld-context
+    url: json-ld/ntu-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

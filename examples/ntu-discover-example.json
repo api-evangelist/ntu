@@ -1,0 +1,55 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://dr.ntu.edu.sg/server/api/discover/search/objects?size=1&dsoType=item"
+  },
+  "response": {
+    "type": "discover",
+    "uniqueType": "discover.discover",
+    "_embedded": {
+      "searchResult": {
+        "_embedded": {
+          "objects": [
+            {
+              "type": "discover",
+              "_links": {
+                "indexableObject": {
+                  "href": "https://dr.ntu.edu.sg/server/api/core/items/7c0a4f1c-c613-4fc7-950a-17effb68c318"
+                }
+              },
+              "_embedded": {
+                "indexableObject": {
+                  "uuid": "7c0a4f1c-c613-4fc7-950a-17effb68c318",
+                  "name": "Jailbreaking large language models via prompt engineering III",
+                  "handle": "10356/213929",
+                  "metadata": {
+                    "dc.contributor.author": [{ "value": "Mendoza, Jose Matthew Abram" }],
+                    "dc.contributor.school": [{ "value": "College of Computing and Data Science" }],
+                    "dc.date.issued": [{ "value": "2026" }],
+                    "dc.identifier.uri": [{ "value": "https://hdl.handle.net/10356/213929" }],
+                    "dc.publisher": [{ "value": "Nanyang Technological University" }],
+                    "dc.subject": [{ "value": "Computer and Information Science" }],
+                    "dc.title": [{ "value": "Jailbreaking large language models via prompt engineering III" }],
+                    "dc.type": [{ "value": "Final Year Project (FYP)" }],
+                    "dspace.entity.type": [{ "value": "Publication" }]
+                  },
+                  "inArchive": true,
+                  "discoverable": true,
+                  "withdrawn": false,
+                  "type": "item",
+                  "uniqueType": "core.item"
+                }
+              }
+            }
+          ]
+        },
+        "page": {
+          "number": 0,
+          "size": 1,
+          "totalPages": 153251,
+          "totalElements": 153251
+        }
+      }
+    }
+  }
+}

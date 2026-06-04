@@ -1,0 +1,60 @@
+formats:
+  - oas3
+rules:
+  ntu-info-contact:
+    description: API info should declare a contact for the NTU repository team.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  ntu-info-version:
+    description: Info version should be present (DR-NTU surfaces platform version).
+    given: $.info
+    severity: warn
+    then:
+      field: version
+      function: truthy
+  ntu-https-servers:
+    description: All NTU server URLs must use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  ntu-server-host:
+    description: Servers should point at an ntu.edu.sg host.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: 'ntu\.edu\.sg'
+  ntu-operation-id:
+    description: Every operation should declare an operationId.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  ntu-operation-tags:
+    description: Operations should be tagged for grouping.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+  ntu-2xx-response:
+    description: Each operation should document a success response.
+    given: $.paths[*][get,post,put,delete,patch].responses
+    severity: warn
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ['200']
+            - required: ['201']
+            - required: ['204']

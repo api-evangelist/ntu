@@ -1,0 +1,43 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://researchdata.ntu.edu.sg/api/search?q=*&type=dataset&per_page=1"
+  },
+  "response": {
+    "status": "OK",
+    "data": {
+      "q": "*",
+      "total_count": 2386,
+      "start": 0,
+      "spelling_alternatives": {},
+      "items": [
+        {
+          "name": "Excel file with DEGs for Lorenzini et al (Roca) RNA 2019",
+          "type": "dataset",
+          "url": "https://doi.org/10.21979/N9/MUULD6",
+          "global_id": "doi:10.21979/N9/MUULD6",
+          "description": "DEGs and other gene expression data from RNA-seq data. 7 RNA-seq samples for K562 cells, PRPF40B knockout and rescue with WT or MDS mutant PRPF40B.",
+          "published_at": "2019-05-27T03:49:17Z",
+          "publisher": "Supporting data for Lorenzini et al RNA 2019",
+          "identifier_of_dataverse": "PRPF40B-KO-RNA",
+          "name_of_dataverse": "Supporting data for Lorenzini et al RNA 2019",
+          "storageIdentifier": "file://10.21979/N9/MUULD6",
+          "keywords": ["DEGs", "Gene expression", "RNA sequencing data", "PRPF40B"],
+          "subjects": ["Medicine, Health and Life Sciences"],
+          "fileCount": 1,
+          "versionId": 937,
+          "versionState": "RELEASED",
+          "majorVersion": 1,
+          "minorVersion": 0,
+          "createdAt": "2019-05-09T05:18:09Z",
+          "updatedAt": "2020-05-19T09:47:08Z",
+          "contacts": [
+            { "name": "Roca Castella, Francesc Xavier", "affiliation": "Nanyang Technological University" }
+          ],
+          "authors": ["Roca Castella, Francesc Xavier"]
+        }
+      ],
+      "count_in_response": 1
+    }
+  }
+}

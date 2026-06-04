@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dr.ntu.edu.sg/schemas/item.json",
+  "title": "DR-NTU (Digital Repository) Item",
+  "description": "A DSpace 7 item resource as embedded in discovery search results from DR-NTU (Digital Repository of NTU).",
+  "type": "object",
+  "required": ["uuid", "type", "metadata"],
+  "properties": {
+    "uuid": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "handle": {
+      "type": "string",
+      "description": "Persistent handle, e.g. 10356/213929."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Map of metadata field keys (e.g. dc.title) to arrays of value objects.",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/metadataValue" }
+      }
+    },
+    "inArchive": { "type": "boolean" },
+    "discoverable": { "type": "boolean" },
+    "withdrawn": { "type": "boolean" },
+    "type": { "type": "string", "const": "item" },
+    "uniqueType": { "type": "string" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "metadataValue": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": { "type": "string" },
+        "language": { "type": ["string", "null"] },
+        "authority": { "type": ["string", "null"] },
+        "confidence": { "type": ["integer", "null"] },
+        "place": { "type": "integer" }
+      }
+    }
+  }
+}
