@@ -1,0 +1,96 @@
+---
+aid: ntu
+name: Nanyang Technological University
+description: >-
+  Nanyang Technological University (NTU Singapore) is a public research university
+  in Singapore and is ranked #15 in the QS World University Rankings 2025. NTU's
+  public, machine-readable footprint is concentrated in its library and research
+  infrastructure: DR-NTU (Data), a Dataverse-based open research data repository,
+  exposes a documented HTTP API, and DR-NTU (Digital Repository of NTU), a DSpace
+  7 / DSpace-CRIS institutional repository, exposes a REST API and an OAI-PMH
+  endpoint. Other institutional systems (student information, timetabling, mobile
+  app backends, SSO) are present but not publicly documented as open APIs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/ntu/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Singapore
+  - Research Data
+  - Open Data
+  - Repository
+  - Library
+tags_country: Singapore
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: ntu:drntu-data
+    name: DR-NTU (Data) Dataverse API
+    description: >-
+      DR-NTU (Data) is NTU's institutional open-access research data repository,
+      built on the open-source Dataverse software (version 6.1). It exposes the
+      standard Dataverse HTTP API for discovering, searching, and downloading
+      published datasets, including the search API and dataset/file access
+      endpoints. Use is governed by the DR-NTU (Data) API Terms of Use.
+    humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+    baseURL: https://researchdata.ntu.edu.sg/api
+    tags: [ Research Data, Open Data, Dataverse, Repository ]
+    properties:
+      - type: Documentation
+        url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+      - type: Documentation
+        url: https://guides.dataverse.org/en/latest/api/
+      - type: Website
+        url: https://researchdata.ntu.edu.sg/
+  - aid: ntu:drntu-repo-rest
+    name: DR-NTU (Digital Repository) DSpace REST API
+    description: >-
+      DR-NTU (Digital Repository of NTU) is NTU's institutional repository for
+      scholarly output, running DSpace 7.6.3 with DSpace-CRIS. It exposes the
+      DSpace 7 HAL-based REST API at /server/api for programmatic discovery and
+      retrieval of communities, collections, items, and bitstreams.
+    humanURL: https://dr.ntu.edu.sg/home
+    baseURL: https://dr.ntu.edu.sg/server/api
+    tags: [ Repository, DSpace, Scholarly, Library ]
+    properties:
+      - type: Documentation
+        url: https://dr.ntu.edu.sg/home
+      - type: Documentation
+        url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - aid: ntu:drntu-repo-oai
+    name: DR-NTU (Digital Repository) OAI-PMH
+    description: >-
+      DR-NTU (Digital Repository of NTU) provides an OAI-PMH 2.0 endpoint for
+      harvesting metadata records from the DSpace-based institutional repository,
+      supporting standard verbs such as Identify, ListRecords, and ListMetadataFormats.
+    humanURL: https://dr.ntu.edu.sg/home
+    baseURL: https://dr.ntu.edu.sg/oai/request
+    tags: [ Repository, OAI-PMH, Metadata, Harvesting, Library ]
+    properties:
+      - type: Documentation
+        url: https://dr.ntu.edu.sg/home
+      - type: Documentation
+        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+common:
+  - type: Website
+    url: https://www.ntu.edu.sg/
+  - type: GitHub
+    url: https://github.com/NTUsg
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/nanyang-technological-university/
+  - type: Plans
+    url: plans/ntu-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ntu-rate-limits.yml
+  - type: FinOps
+    url: finops/ntu-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,52 @@
+---
+name: Nanyang Technological University
+description: Nanyang Technological University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/ntu/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      NTU's confirmed public API footprint is centered on its library and research
+      infrastructure. DR-NTU (Data) runs Dataverse 6.1 with a live, documented HTTP
+      API (verified /api/info/version and /api/search returning 200). DR-NTU
+      (Digital Repository) runs DSpace 7.6.3 with DSpace-CRIS, exposing a live REST
+      API at /server/api (200) and an OAI-PMH endpoint (Identify verb returned 200).
+      The official NTUsg GitHub org exists but has no public repositories. No
+      publicly documented course/timetable/SIS or mobile-backend APIs were found.
+      All endpoints below were probed live; nothing was fabricated.
+    endpoints:
+      - url: https://researchdata.ntu.edu.sg/
+        status: 200
+        note: DR-NTU (Data) Dataverse portal, live.
+      - url: https://researchdata.ntu.edu.sg/api/info/version
+        status: 200
+        note: Dataverse API responding, version 6.1.
+      - url: https://researchdata.ntu.edu.sg/api/search?q=*
+        status: 200
+        note: Dataverse search API responding.
+      - url: https://researchdata.ntu.edu.sg/api/dataverses/root
+        status: 404
+        note: Root dataverse alias not exposed under that path; other API paths work.
+      - url: https://dr.ntu.edu.sg/server/api
+        status: 200
+        note: DSpace 7.6.3 REST API root, reports DSpace-CRIS cris-2023.02.07.
+      - url: https://dr.ntu.edu.sg/oai/request?verb=Identify
+        status: 200
+        note: OAI-PMH endpoint Identify verb responding.
+      - url: https://dr.ntu.edu.sg/home
+        status: 405
+        note: UI home returns 405 to HEAD/GET probe but is browser-accessible.
+      - url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+        status: 200
+        note: DR-NTU (Data) API Terms of Use page, live.
+      - url: https://github.com/NTUsg
+        status: 200
+        note: Official NTU GitHub org; no public repositories at review time.
+      - url: https://www.ntu.edu.sg/
+        status: 200
+        note: Official institutional website.
+      - url: https://www.linkedin.com/school/nanyang-technological-university/
+        status: 999
+        note: LinkedIn school page exists; 999 is LinkedIn bot-blocking, not a dead link.
