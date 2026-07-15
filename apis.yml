@@ -91,6 +91,8 @@ apis:
       - type: OpenAPI
         url: openapi/ntu-drntu-repo-oai.yaml
 common:
+  - type: AgenticAccess
+    url: agentic-access/ntu-agentic-access.yml
   - type: DomainSecurity
     url: security/ntu-domain-security.yml
   - type: Website
