@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Data) Dataverse Discover OAI-PMH API
+  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
+  version: '6.1'
+  contact:
+    name: DR-NTU (Data)
+    url: https://researchdata.ntu.edu.sg/
+  license:
+    name: DR-NTU (Data) API Terms of Use
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+servers:
+- url: https://researchdata.ntu.edu.sg/api
+  description: DR-NTU (Data) production API
+tags:
+- name: OAI-PMH
+paths:
+  /request:
+    get:
+      operationId: oaiRequest
+      summary: OAI-PMH request dispatcher
+      description: Single OAI-PMH endpoint. The "verb" parameter selects the operation (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord). Other parameters depend on the chosen verb.
+      tags:
+      - OAI-PMH
+      parameters:
+      - name: verb
+        in: query
+        required: true
+        description: The OAI-PMH verb to execute.
+        schema:
+          type: string
+          enum:
+          - Identify
+          - ListMetadataFormats
+          - ListSets
+          - ListIdentifiers
+          - ListRecords
+          - GetRecord
+      - name: identifier
+        in: query
+        description: OAI identifier of a record (GetRecord, ListMetadataFormats).
+        schema:
+          type: string
+        example: oai:dr.ntu.edu.sg:10356/213929
+      - name: metadataPrefix
+        in: query
+        description: Metadata format prefix (ListIdentifiers, ListRecords, GetRecord).
+        schema:
+          type: string
+        example: oai_dc
+      - name: set
+        in: query
+        description: Set spec to selectively harvest.
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: Lower bound for datestamp-based selective harvesting (UTC).
+        schema:
+          type: string
+          format: date-time
+      - name: until
+        in: query
+        description: Upper bound for datestamp-based selective harvesting (UTC).
+        schema:
+          type: string
+          format: date-time
+      - name: resumptionToken
+        in: query
+        description: Flow control token from a previous incomplete list response.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: An OAI-PMH XML response document.
+          content:
+            text/xml:
+              schema:
+                type: string
+                description: XML document rooted at OAI-PMH containing responseDate, request, and a verb-specific element. For Identify this includes repositoryName, baseURL, protocolVersion, earliestDatestamp, deletedRecord, and granularity.
+              example: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\">\n  <responseDate>2026-06-03T00:00:00Z</responseDate>\n  <request verb=\"Identify\">https://dr.ntu.edu.sg/oai/request</request>\n  <Identify>\n    <repositoryName>DR-NTU (Digital Repository of NTU)</repositoryName>\n    <baseURL>https://dr.ntu.edu.sg/server/oai/request</baseURL>\n    <protocolVersion>2.0</protocolVersion>\n    <adminEmail>library@ntu.edu.sg</adminEmail>\n    <earliestDatestamp>2008-05-15T00:00:00Z</earliestDatestamp>\n    <deletedRecord>transient</deletedRecord>\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>\n  </Identify>\n</OAI-PMH>\n"

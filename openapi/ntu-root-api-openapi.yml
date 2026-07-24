@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Data) Dataverse Discover Root API
+  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
+  version: '6.1'
+  contact:
+    name: DR-NTU (Data)
+    url: https://researchdata.ntu.edu.sg/
+  license:
+    name: DR-NTU (Data) API Terms of Use
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+servers:
+- url: https://researchdata.ntu.edu.sg/api
+  description: DR-NTU (Data) production API
+tags:
+- name: Root
+paths:
+  /:
+    get:
+      operationId: getApiRoot
+      summary: Get API root (HAL entry point)
+      description: Returns the HAL root document listing all available endpoint links along with DSpace version metadata.
+      tags:
+      - Root
+      responses:
+        '200':
+          description: HAL root document
+          content:
+            application/hal+json:
+              schema:
+                type: object
+                additionalProperties: true

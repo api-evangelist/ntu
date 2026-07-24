@@ -1,0 +1,164 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Data) Dataverse Discover API
+  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
+  version: '6.1'
+  contact:
+    name: DR-NTU (Data)
+    url: https://researchdata.ntu.edu.sg/
+  license:
+    name: DR-NTU (Data) API Terms of Use
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+servers:
+- url: https://researchdata.ntu.edu.sg/api
+  description: DR-NTU (Data) production API
+tags:
+- name: Discover
+paths:
+  /discover/search/objects:
+    get:
+      operationId: discoverSearchObjects
+      summary: Discover (search) repository objects
+      description: Public discovery search over indexed objects (items, collections, communities). Returns a paged HAL search result whose hits embed the matching indexableObject.
+      tags:
+      - Discover
+      parameters:
+      - name: query
+        in: query
+        description: Full-text query string.
+        schema:
+          type: string
+      - name: dsoType
+        in: query
+        description: Restrict to a DSpace object type.
+        schema:
+          type: string
+          enum:
+          - item
+          - collection
+          - community
+      - name: scope
+        in: query
+        description: UUID of a community or collection to scope the search to.
+        schema:
+          type: string
+          format: uuid
+      - name: page
+        in: query
+        description: Zero-based page index.
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+      - name: size
+        in: query
+        description: Page size.
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: Paged HAL search result
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/DiscoverSearchResult'
+components:
+  schemas:
+    DiscoverSearchResult:
+      type: object
+      properties:
+        type:
+          type: string
+          example: discover
+        uniqueType:
+          type: string
+          example: discover.discover
+        _links:
+          type: object
+          additionalProperties: true
+        _embedded:
+          type: object
+          properties:
+            searchResult:
+              type: object
+              properties:
+                _links:
+                  type: object
+                  additionalProperties: true
+                _embedded:
+                  type: object
+                  properties:
+                    objects:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          _embedded:
+                            type: object
+                            properties:
+                              indexableObject:
+                                $ref: '#/components/schemas/Item'
+                page:
+                  $ref: '#/components/schemas/Page'
+    Page:
+      type: object
+      properties:
+        number:
+          type: integer
+        size:
+          type: integer
+        totalPages:
+          type: integer
+        totalElements:
+          type: integer
+    MetadataValue:
+      type: object
+      properties:
+        value:
+          type: string
+        language:
+          type: string
+          nullable: true
+        authority:
+          type: string
+          nullable: true
+        confidence:
+          type: integer
+          nullable: true
+        place:
+          type: integer
+    Item:
+      type: object
+      description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          description: Persistent handle, e.g. 10356/213929.
+        metadata:
+          type: object
+          description: Map of metadata field keys (e.g. dc.title, dc.contributor.author) to arrays of value objects.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataValue'
+        inArchive:
+          type: boolean
+        discoverable:
+          type: boolean
+        withdrawn:
+          type: boolean
+        type:
+          type: string
+          example: item
+        uniqueType:
+          type: string
+          example: core.item
