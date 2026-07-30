@@ -11,9 +11,21 @@ description: >-
   endpoint. Other institutional systems (student information, timetabling, mobile
   app backends, SSO) are present but not publicly documented as open APIs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ntu.png
 url: https://raw.githubusercontent.com/api-evangelist/ntu/refs/heads/main/apis.yml
 tags:
   - Education
@@ -29,67 +41,186 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: ntu:drntu-data
-    name: DR-NTU (Data) Dataverse API
-    description: >-
-      DR-NTU (Data) is NTU's institutional open-access research data repository,
-      built on the open-source Dataverse software (version 6.1). It exposes the
-      standard Dataverse HTTP API for discovering, searching, and downloading
-      published datasets, including the search API and dataset/file access
-      endpoints. Use is governed by the DR-NTU (Data) API Terms of Use.
-    humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
-    baseURL: https://researchdata.ntu.edu.sg/api
-    tags: [ Research Data, Open Data, Dataverse, Repository ]
-    properties:
-      - type: Documentation
-        url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
-      - type: Documentation
-        url: https://guides.dataverse.org/en/latest/api/
-      - type: Website
-        url: https://researchdata.ntu.edu.sg/
-      - type: OpenAPI
-        url: openapi/ntu-drntu-data.yaml
-      - type: x-json-schema
-        url: json-schema/ntu-dataset-schema.json
-      - type: x-example
-        url: examples/ntu-search-example.json
-  - aid: ntu:drntu-repo-rest
-    name: DR-NTU (Digital Repository) DSpace REST API
-    description: >-
-      DR-NTU (Digital Repository of NTU) is NTU's institutional repository for
-      scholarly output, running DSpace 7.6.3 with DSpace-CRIS. It exposes the
-      DSpace 7 HAL-based REST API at /server/api for programmatic discovery and
-      retrieval of communities, collections, items, and bitstreams.
-    humanURL: https://dr.ntu.edu.sg/home
-    baseURL: https://dr.ntu.edu.sg/server/api
-    tags: [ Repository, DSpace, Scholarly, Library ]
-    properties:
-      - type: Documentation
-        url: https://dr.ntu.edu.sg/home
-      - type: Documentation
-        url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
-      - type: OpenAPI
-        url: openapi/ntu-drntu-repo-rest.yaml
-      - type: x-json-schema
-        url: json-schema/ntu-item-schema.json
-      - type: x-example
-        url: examples/ntu-discover-example.json
-  - aid: ntu:drntu-repo-oai
-    name: DR-NTU (Digital Repository) OAI-PMH
-    description: >-
-      DR-NTU (Digital Repository of NTU) provides an OAI-PMH 2.0 endpoint for
-      harvesting metadata records from the DSpace-based institutional repository,
-      supporting standard verbs such as Identify, ListRecords, and ListMetadataFormats.
-    humanURL: https://dr.ntu.edu.sg/home
-    baseURL: https://dr.ntu.edu.sg/oai/request
-    tags: [ Repository, OAI-PMH, Metadata, Harvesting, Library ]
-    properties:
-      - type: Documentation
-        url: https://dr.ntu.edu.sg/home
-      - type: Documentation
-        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
-      - type: OpenAPI
-        url: openapi/ntu-drntu-repo-oai.yaml
+- aid: ntu:ntu-discover-api
+  name: Nanyang Technological University Discover API
+  description: The Discover API from Nanyang Technological University — 1 operation(s) for discover.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Discover
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-discover-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: ntu:ntu-info-api
+  name: Nanyang Technological University Info API
+  description: The Info API from Nanyang Technological University — 1 operation(s) for info.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Info
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-info-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: ntu:ntu-items-api
+  name: Nanyang Technological University Items API
+  description: The Items API from Nanyang Technological University — 1 operation(s) for items.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-items-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: ntu:ntu-oai-pmh-api
+  name: Nanyang Technological University OAI-PMH API
+  description: The OAI-PMH API from Nanyang Technological University — 1 operation(s) for oai-pmh.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - OAI-PMH
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-oai-pmh-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: ntu:ntu-root-api
+  name: Nanyang Technological University Root API
+  description: The Root API from Nanyang Technological University — 1 operation(s) for root.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Root
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-root-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+- aid: ntu:ntu-search-api
+  name: Nanyang Technological University Search API
+  description: The Search API from Nanyang Technological University — 1 operation(s) for search.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-search-api-openapi.yml
+  - type: Documentation
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  - type: Documentation
+    url: https://guides.dataverse.org/en/latest/api/
+  - type: Website
+    url: https://researchdata.ntu.edu.sg/
+  - type: x-json-schema
+    url: json-schema/ntu-dataset-schema.json
+  - type: x-example
+    url: examples/ntu-search-example.json
+  - type: Documentation
+    url: https://dr.ntu.edu.sg/home
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: x-json-schema
+    url: json-schema/ntu-item-schema.json
+  - type: x-example
+    url: examples/ntu-discover-example.json
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
 common:
   - type: AgenticAccess
     url: agentic-access/ntu-agentic-access.yml
