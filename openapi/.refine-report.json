@@ -1,0 +1,24 @@
+{
+  "provider": "ntu",
+  "sources": [
+    "ntu-discover-api-openapi.yml",
+    "ntu-info-api-openapi.yml",
+    "ntu-items-api-openapi.yml",
+    "ntu-oai-pmh-api-openapi.yml",
+    "ntu-root-api-openapi.yml",
+    "ntu-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "ntu-discover-api-openapi.yml",
+    "ntu-info-api-openapi.yml",
+    "ntu-items-api-openapi.yml",
+    "ntu-oai-pmh-api-openapi.yml",
+    "ntu-root-api-openapi.yml",
+    "ntu-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

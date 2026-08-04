@@ -1,0 +1,194 @@
+openapi: 3.0.3
+info:
+  title: DR-NTU (Data) Dataverse API
+  description: >-
+    Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's
+    institutional open-access research data repository. This description covers
+    the publicly accessible, unauthenticated discovery and access operations
+    that were verified against the live deployment. Field names and the response
+    envelope reflect the actual Dataverse Search API and version endpoint.
+    Authenticated administrative and write operations are documented upstream at
+    https://guides.dataverse.org/en/latest/api/ and are intentionally omitted
+    here.
+  version: '6.1'
+  contact:
+    name: DR-NTU (Data)
+    url: https://researchdata.ntu.edu.sg/
+  license:
+    name: DR-NTU (Data) API Terms of Use
+    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+servers:
+  - url: https://researchdata.ntu.edu.sg/api
+    description: DR-NTU (Data) production API
+paths:
+  /info/version:
+    get:
+      operationId: getVersion
+      summary: Get Dataverse version
+      description: Returns the running Dataverse software version and build.
+      tags: [Info]
+      responses:
+        '200':
+          description: Version information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+              example:
+                status: OK
+                data:
+                  version: '6.1'
+                  build: null
+  /search:
+    get:
+      operationId: search
+      summary: Search published content
+      description: >-
+        Full-text and faceted search over published Dataverses, datasets, and
+        files. Returns a Dataverse search envelope with a data.items array.
+      tags: [Search]
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Search query string. Use "*" to match all.
+          schema:
+            type: string
+          example: '*'
+        - name: type
+          in: query
+          description: Restrict results to a content type.
+          schema:
+            type: string
+            enum: [dataverse, dataset, file]
+        - name: per_page
+          in: query
+          description: Number of results per page (max 1000).
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 1000
+            default: 10
+        - name: start
+          in: query
+          description: Zero-based offset of the first result.
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+components:
+  schemas:
+    VersionResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        data:
+          type: object
+          properties:
+            version:
+              type: string
+              example: '6.1'
+            build:
+              type: string
+              nullable: true
+    SearchResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        data:
+          type: object
+          properties:
+            q:
+              type: string
+            total_count:
+              type: integer
+            start:
+              type: integer
+            spelling_alternatives:
+              type: object
+              additionalProperties: true
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/SearchItem'
+            count_in_response:
+              type: integer
+    SearchItem:
+      type: object
+      description: A single search hit (dataset shape shown; files/dataverses share the envelope).
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum: [dataverse, dataset, file]
+        url:
+          type: string
+          format: uri
+        global_id:
+          type: string
+        description:
+          type: string
+        published_at:
+          type: string
+          format: date-time
+        publisher:
+          type: string
+        citationHtml:
+          type: string
+        citation:
+          type: string
+        identifier_of_dataverse:
+          type: string
+        name_of_dataverse:
+          type: string
+        storageIdentifier:
+          type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        subjects:
+          type: array
+          items:
+            type: string
+        fileCount:
+          type: integer
+        versionId:
+          type: integer
+        versionState:
+          type: string
+        majorVersion:
+          type: integer
+        minorVersion:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        contacts:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              affiliation:
+                type: string
+        authors:
+          type: array
+          items:
+            type: string
