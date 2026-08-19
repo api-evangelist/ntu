@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discover",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Discover (search) repository objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/discover/search/objects",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Full-text query string."
+              },
+              {
+                "name": "dsoType",
+                "value": "",
+                "type": "query",
+                "description": "Restrict to a DSpace object type."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "UUID of a community or collection to scope the search to."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              }
+            ]
+          },
+          "docs": "Public discovery search over indexed objects (items, collections, communities). Returns a paged HAL search result whose hits embed the matching indexableObject."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

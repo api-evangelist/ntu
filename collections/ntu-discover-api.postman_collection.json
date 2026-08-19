@@ -1,0 +1,158 @@
+{
+  "item": [
+    {
+      "id": "1881a2d4-2e3c-469b-ae51-e45d2c5f2ae9",
+      "name": "Discover",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d5d4607-faf2-4886-9a23-c79b0ce32458",
+          "name": "Discover (search) repository objects",
+          "request": {
+            "name": "Discover (search) repository objects",
+            "description": {
+              "content": "Public discovery search over indexed objects (items, collections, communities). Returns a paged HAL search result whose hits embed the matching indexableObject.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discover",
+                "search",
+                "objects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Full-text query string."
+                },
+                {
+                  "disabled": false,
+                  "key": "dsoType",
+                  "value": "<string>",
+                  "description": "Restrict to a DSpace object type."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<uuid>",
+                  "description": "UUID of a community or collection to scope the search to."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "Page size."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4385d711-442d-4f36-94da-a15aecd9c244",
+              "name": "Paged HAL search result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discover",
+                    "search",
+                    "objects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dsoType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"discover\",\n  \"uniqueType\": \"discover.discover\",\n  \"_links\": {\n    \"key_0\": 5434.553870128304,\n    \"key_1\": \"string\"\n  },\n  \"_embedded\": {\n    \"searchResult\": {\n      \"_links\": {\n        \"key_0\": \"string\",\n        \"key_1\": 6387.475989464586\n      },\n      \"_embedded\": {\n        \"objects\": [\n          {\n            \"type\": \"string\",\n            \"_embedded\": {\n              \"indexableObject\": {\n                \"uuid\": \"0bf8129b-5eca-0f48-ff8c-7a4bed5d086e\",\n                \"name\": \"string\",\n                \"handle\": \"string\",\n                \"metadata\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"inArchive\": false,\n                \"discoverable\": true,\n                \"withdrawn\": true,\n                \"type\": \"item\",\n                \"uniqueType\": \"core.item\"\n              }\n            }\n          },\n          {\n            \"type\": \"string\",\n            \"_embedded\": {\n              \"indexableObject\": {\n                \"uuid\": \"59ebc94a-eeb8-c44b-51fc-e1f5f0333f4a\",\n                \"name\": \"string\",\n                \"handle\": \"string\",\n                \"metadata\": {\n                  \"key_0\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  },\n                  \"key_1\": {\n                    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                  }\n                },\n                \"inArchive\": true,\n                \"discoverable\": true,\n                \"withdrawn\": true,\n                \"type\": \"item\",\n                \"uniqueType\": \"core.item\"\n              }\n            }\n          }\n        ]\n      },\n      \"page\": {\n        \"number\": 9164,\n        \"size\": 9583,\n        \"totalPages\": 3297,\n        \"totalElements\": 6172\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ea7e6bf4-1a9f-48ae-b274-5a427f0e26ba",
+    "name": "DR-NTU (Data) Dataverse Discover API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

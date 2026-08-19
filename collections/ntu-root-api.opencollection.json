@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover Root API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Root",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API root (HAL entry point)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/"
+          },
+          "docs": "Returns the HAL root document listing all available endpoint links along with DSpace version metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

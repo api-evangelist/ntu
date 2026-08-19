@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover Items API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an item by UUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/core/items/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single DSpace item resource. Note that on this deployment, retrieving items outside of discovery may require authentication for restricted content."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

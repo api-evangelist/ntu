@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "0c42f554-45dd-4d8f-a696-a7d680d32902",
+      "name": "OAI-PMH",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c608553-5fa0-4b3b-922d-1626f76f3c04",
+          "name": "OAI-PMH request dispatcher",
+          "request": {
+            "name": "OAI-PMH request dispatcher",
+            "description": {
+              "content": "Single OAI-PMH endpoint. The \"verb\" parameter selects the operation (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord). Other parameters depend on the chosen verb.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verb",
+                  "value": "<string>",
+                  "description": "(Required) The OAI-PMH verb to execute."
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "OAI identifier of a record (GetRecord, ListMetadataFormats)."
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataPrefix",
+                  "value": "<string>",
+                  "description": "Metadata format prefix (ListIdentifiers, ListRecords, GetRecord)."
+                },
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>",
+                  "description": "Set spec to selectively harvest."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Lower bound for datestamp-based selective harvesting (UTC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "Upper bound for datestamp-based selective harvesting (UTC)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resumptionToken",
+                  "value": "<string>",
+                  "description": "Flow control token from a previous incomplete list response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93e91a4e-9b38-4373-8463-92a865e2631b",
+              "name": "An OAI-PMH XML response document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verb",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "oai:dr.ntu.edu.sg:10356/213929"
+                    },
+                    {
+                      "key": "metadataPrefix",
+                      "value": "oai_dc"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resumptionToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<element><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\">\n  <responseDate>2026-06-03T00:00:00Z</responseDate>\n  <request verb=\"Identify\">https://dr.ntu.edu.sg/oai/request</request>\n  <Identify>\n    <repositoryName>DR-NTU (Digital Repository of NTU)</repositoryName>\n    <baseURL>https://dr.ntu.edu.sg/server/oai/request</baseURL>\n    <protocolVersion>2.0</protocolVersion>\n    <adminEmail>library@ntu.edu.sg</adminEmail>\n    <earliestDatestamp>2008-05-15T00:00:00Z</earliestDatestamp>\n    <deletedRecord>transient</deletedRecord>\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>\n  </Identify>\n</OAI-PMH>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2a5ba151-aec6-4159-9407-31508a106242",
+    "name": "DR-NTU (Data) Dataverse Discover OAI-PMH API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

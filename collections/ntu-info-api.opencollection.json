@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover Info API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Dataverse version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/info/version"
+          },
+          "docs": "Returns the running Dataverse software version and build."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

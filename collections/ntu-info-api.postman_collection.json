@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "f828788f-db03-45a4-a5f0-a4e305a30911",
+      "name": "Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7db01420-0590-40d3-954c-4446270a852e",
+          "name": "Get Dataverse version",
+          "request": {
+            "name": "Get Dataverse version",
+            "description": {
+              "content": "Returns the running Dataverse software version and build.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "262d0e94-4f30-4246-9796-48c951385b25",
+              "name": "Version information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"data\": {\n    \"version\": \"6.1\",\n    \"build\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "04e5865a-7304-444f-a6ae-fd90852f86b0",
+    "name": "DR-NTU (Data) Dataverse Discover Info API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

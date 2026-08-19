@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover OAI-PMH API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAI-PMH",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OAI-PMH request dispatcher",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/request",
+            "params": [
+              {
+                "name": "verb",
+                "value": "",
+                "type": "query",
+                "description": "The OAI-PMH verb to execute."
+              },
+              {
+                "name": "identifier",
+                "value": "oai:dr.ntu.edu.sg:10356/213929",
+                "type": "query",
+                "description": "OAI identifier of a record (GetRecord, ListMetadataFormats)."
+              },
+              {
+                "name": "metadataPrefix",
+                "value": "oai_dc",
+                "type": "query",
+                "description": "Metadata format prefix (ListIdentifiers, ListRecords, GetRecord)."
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "Set spec to selectively harvest."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Lower bound for datestamp-based selective harvesting (UTC)."
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "Upper bound for datestamp-based selective harvesting (UTC)."
+              },
+              {
+                "name": "resumptionToken",
+                "value": "",
+                "type": "query",
+                "description": "Flow control token from a previous incomplete list response."
+              }
+            ]
+          },
+          "docs": "Single OAI-PMH endpoint. The \"verb\" parameter selects the operation (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord). Other parameters depend on the chosen verb."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

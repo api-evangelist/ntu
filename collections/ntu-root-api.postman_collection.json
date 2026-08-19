@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "9ce9c19f-8a3c-40ca-a2e0-84709fe864b6",
+      "name": "Root",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "461ccb1e-fe3d-4ca7-8643-063e71ae46a6",
+          "name": "Get API root (HAL entry point)",
+          "request": {
+            "name": "Get API root (HAL entry point)",
+            "description": {
+              "content": "Returns the HAL root document listing all available endpoint links along with DSpace version metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "963120db-b6d7-4ee0-88d5-64245a336a53",
+              "name": "HAL root document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73b9b262-b938-48fe-8e40-a59a89e46c99",
+    "name": "DR-NTU (Data) Dataverse Discover Root API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

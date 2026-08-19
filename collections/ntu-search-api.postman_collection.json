@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "b6342695-e08e-47eb-a111-5b3848d7e9a1",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ebde89a-6d11-4d21-a8a5-4025c3f3f10b",
+          "name": "Search published content",
+          "request": {
+            "name": "Search published content",
+            "description": {
+              "content": "Full-text and faceted search over published Dataverses, datasets, and files. Returns a Dataverse search envelope with a data.items array.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Search query string. Use \"*\" to match all."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Restrict results to a content type."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Number of results per page (max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "0",
+                  "description": "Zero-based offset of the first result."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1bcb941-2a4a-45c2-be43-61bc02747ca9",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "*"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "start",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"data\": {\n    \"q\": \"string\",\n    \"total_count\": 7325,\n    \"start\": 5413,\n    \"spelling_alternatives\": {\n      \"key_0\": 2100.918058234914,\n      \"key_1\": \"string\"\n    },\n    \"items\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"dataset\",\n        \"url\": \"http://jmoebQMAKePYH.mmct7wdVBSmQx7aF\",\n        \"global_id\": \"string\",\n        \"description\": \"string\",\n        \"published_at\": \"1959-08-19T09:11:56.978Z\",\n        \"publisher\": \"string\",\n        \"citationHtml\": \"string\",\n        \"citation\": \"string\",\n        \"identifier_of_dataverse\": \"string\",\n        \"name_of_dataverse\": \"string\",\n        \"storageIdentifier\": \"string\",\n        \"keywords\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subjects\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fileCount\": 3400,\n        \"versionId\": 1191,\n        \"versionState\": \"string\",\n        \"majorVersion\": 9898,\n        \"minorVersion\": 4789,\n        \"createdAt\": \"2006-08-22T04:04:37.210Z\",\n        \"updatedAt\": \"1949-08-22T03:36:08.259Z\",\n        \"contacts\": [\n          {\n            \"name\": \"string\",\n            \"affiliation\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"affiliation\": \"string\"\n          }\n        ],\n        \"authors\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"type\": \"dataverse\",\n        \"url\": \"https://QLNMCAnJLpdHcetQwJ.fuqfM61GbPL2QN9Whcl,DoLw\",\n        \"global_id\": \"string\",\n        \"description\": \"string\",\n        \"published_at\": \"1982-07-28T05:12:09.128Z\",\n        \"publisher\": \"string\",\n        \"citationHtml\": \"string\",\n        \"citation\": \"string\",\n        \"identifier_of_dataverse\": \"string\",\n        \"name_of_dataverse\": \"string\",\n        \"storageIdentifier\": \"string\",\n        \"keywords\": [\n          \"string\",\n          \"string\"\n        ],\n        \"subjects\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fileCount\": 5212,\n        \"versionId\": 9163,\n        \"versionState\": \"string\",\n        \"majorVersion\": 3627,\n        \"minorVersion\": 2008,\n        \"createdAt\": \"1991-12-15T20:48:14.574Z\",\n        \"updatedAt\": \"1967-08-08T15:35:53.632Z\",\n        \"contacts\": [\n          {\n            \"name\": \"string\",\n            \"affiliation\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"affiliation\": \"string\"\n          }\n        ],\n        \"authors\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"count_in_response\": 5735\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e5e88e2a-cbba-4cbb-a125-c1337b705b38",
+    "name": "DR-NTU (Data) Dataverse Discover Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

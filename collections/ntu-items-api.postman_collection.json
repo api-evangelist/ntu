@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "b69b7ecb-5b31-4cf5-98a9-b928d457370d",
+      "name": "Items",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2162891e-123e-4c00-91eb-dc0df09acb5c",
+          "name": "Get an item by UUID",
+          "request": {
+            "name": "Get an item by UUID",
+            "description": {
+              "content": "Returns a single DSpace item resource. Note that on this deployment, retrieving items outside of discovery may require authentication for restricted content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "core",
+                "items",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/hal+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28ab6a16-6174-4d48-955b-1964d9663315",
+              "name": "Item resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "core",
+                    "items",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/hal+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/hal+json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"98cccdb9-8bc2-9cbd-c3c6-d9399b955964\",\n  \"name\": \"string\",\n  \"handle\": \"string\",\n  \"metadata\": {\n    \"key_0\": [\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 1574,\n        \"place\": 7384\n      },\n      {\n        \"value\": \"string\",\n        \"language\": \"string\",\n        \"authority\": \"string\",\n        \"confidence\": 8072,\n        \"place\": 7874\n      }\n    ]\n  },\n  \"inArchive\": false,\n  \"discoverable\": false,\n  \"withdrawn\": true,\n  \"type\": \"item\",\n  \"uniqueType\": \"core.item\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3c070ce-b78e-4213-a226-9bb2f1a9aa0a",
+              "name": "Authentication required for this resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "core",
+                    "items",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://researchdata.ntu.edu.sg/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85cbf6d3-ded1-46d3-be56-fc55f80a7726",
+    "name": "DR-NTU (Data) Dataverse Discover Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.\n\nContact Support:\n Name: DR-NTU (Data)",
+      "type": "text/plain"
+    }
+  }
+}

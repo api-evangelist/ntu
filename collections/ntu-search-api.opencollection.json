@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DR-NTU (Data) Dataverse Discover Search API",
+    "version": "6.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search published content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://researchdata.ntu.edu.sg/api/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "*",
+                "type": "query",
+                "description": "Search query string. Use \"*\" to match all."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Restrict results to a content type."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 1000)."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset of the first result."
+              }
+            ]
+          },
+          "docs": "Full-text and faceted search over published Dataverses, datasets, and files. Returns a Dataverse search envelope with a data.items array."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
