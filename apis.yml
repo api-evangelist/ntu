@@ -39,7 +39,7 @@ tags:
 tags_country: Singapore
 created: '2026-06-03'
 modified: '2026-06-03'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: ntu:ntu-discover-api
   name: Nanyang Technological University Discover API
