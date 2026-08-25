@@ -1,0 +1,14 @@
+{
+  "repo": "ntu",
+  "feeds": [
+    {
+      "source": "https://www.ntu.edu.sg/life-at-ntu/internet-account-and-policy/contact-service-desk",
+      "feed_url": "https://www.ntu.edu.sg/life-at-ntu/internet-account-and-policy/contact-service-desk",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-22T20:20:02Z"
+}
