@@ -22,6 +22,18 @@ description: >-
   documents no route at all. This profile records the tenancies as the real institutional facts they
   are, and credits NTU only for what NTU actually operates.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
@@ -102,14 +114,14 @@ apis:
 - aid: ntu:ntu-drntu-data
   name: DR-NTU (Data) — Dataverse API
   description: >-
-    NTU's institutional open research data repository, running Dataverse 6.1 self-hosted on NTU's
-    own network. The publicly documented, unauthenticated read subset covers dataset search and the
-    platform version endpoint. Deposit and restricted-file access require an X-Dataverse-key token
-    issued through an NTU account. This is the only API in this profile that NTU actually operates.
+    NTU's institutional open research data repository, running Dataverse 6.1 self-hosted on NTU's own
+    network. The publicly documented, unauthenticated read subset covers dataset search and the platform
+    version endpoint. Deposit and restricted-file access require an X-Dataverse-key token issued through
+    an NTU account. This is the only API in this profile that NTU actually operates.
   x-operator: institution
   x-operator-evidence: >-
-    researchdata.ntu.edu.sg CNAME -> dataverse.ntu.edu.sg -> 155.69.19.238; whois netname NTUNET1,
-    org-name "Nanyang Technological University", country SG. Not a vendor-hosted tenancy.
+    researchdata.ntu.edu.sg CNAME -> dataverse.ntu.edu.sg -> 155.69.19.238; whois netname NTUNET1, org-name
+    "Nanyang Technological University", country SG. Not a vendor-hosted tenancy.
   humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
   baseURL: https://researchdata.ntu.edu.sg/api
   tags:
@@ -136,17 +148,16 @@ apis:
 - aid: ntu:ntu-drntu-repository
   name: DR-NTU (Digital Repository) — DSpace-CRIS REST API
   description: >-
-    NTU's institutional publications and research-profile repository — 158,100 research profiles,
-    records back to 2008 — served from NTU's own hostname but operated on 4Science's DSpace-CRIS
-    platform. Recorded here as a tenant relationship because the repository, the data and the
-    library administration are NTU's while the platform and the REST contract are the vendor's. No
-    OpenAPI is registered under NTU for this surface: the DSpace 7 contract belongs in the
-    platform's own catalog entry, not in NTU's.
+    NTU's institutional publications and research-profile repository — 158,100 research profiles, records
+    back to 2008 — served from NTU's own hostname but operated on 4Science's DSpace-CRIS platform. Recorded
+    here as a tenant relationship because the repository, the data and the library administration are
+    NTU's while the platform and the REST contract are the vendor's. No OpenAPI is registered under NTU
+    for this surface: the DSpace 7 contract belongs in the platform's own catalog entry, not in NTU's.
   x-operator: tenant
   x-operator-evidence: >-
-    dr.ntu.edu.sg CNAME -> ntu-cris.4science.cloud. /server/api self-reports
-    "dspaceVersion": "DSpace 7.6.3", "crisVersion": "cris-2023.02.07", and the archived contract
-    points to wiki.lyrasis.org for the full REST specification.
+    dr.ntu.edu.sg CNAME -> ntu-cris.4science.cloud. /server/api self-reports "dspaceVersion": "DSpace
+    7.6.3", "crisVersion": "cris-2023.02.07", and the archived contract points to wiki.lyrasis.org for
+    the full REST specification.
   humanURL: https://dr.ntu.edu.sg/home
   baseURL: https://dr.ntu.edu.sg/server/api
   tags:
@@ -166,14 +177,14 @@ apis:
 - aid: ntu:ntu-drntu-repository-oai
   name: DR-NTU (Digital Repository) — OAI-PMH
   description: >-
-    A fully conformant OAI-PMH 2.0 metadata harvesting endpoint over DR-NTU, serving 11 metadata
-    formats and declaring OpenAIRE CERIF-CRIS 1.1 compatibility on a second base URL. Administered
-    by NTU Library (library@ntu.edu.sg) with an earliest datestamp of 2008-05-15, but implemented
-    and operated by the DSpace-CRIS platform on 4Science infrastructure. Verified live 2026-08-19.
+    A fully conformant OAI-PMH 2.0 metadata harvesting endpoint over DR-NTU, serving 11 metadata formats
+    and declaring OpenAIRE CERIF-CRIS 1.1 compatibility on a second base URL. Administered by NTU Library
+    (library@ntu.edu.sg) with an earliest datestamp of 2008-05-15, but implemented and operated by the
+    DSpace-CRIS platform on 4Science infrastructure. Verified live 2026-08-19.
   x-operator: tenant
   x-operator-evidence: >-
-    Same host as the DSpace REST surface: dr.ntu.edu.sg CNAME -> ntu-cris.4science.cloud. Identify
-    reports baseURL https://dr.ntu.edu.sg/server/oai/request, repositoryIdentifier dr.ntu.edu.sg.
+    Same host as the DSpace REST surface: dr.ntu.edu.sg CNAME -> ntu-cris.4science.cloud. Identify reports
+    baseURL https://dr.ntu.edu.sg/server/oai/request, repositoryIdentifier dr.ntu.edu.sg.
   humanURL: https://dr.ntu.edu.sg/home
   baseURL: https://dr.ntu.edu.sg/server/oai/request
   tags:
@@ -190,18 +201,18 @@ apis:
 - aid: ntu:ntu-identity-federation
   name: NTU Identity Provider — SGAF / eduGAIN
   description: >-
-    NTU's SAML 2.0 identity provider, registered in the Singapore Access Federation (SGAF) by
-    SingAREN and interfederated into eduGAIN, asserting the scope ntu.edu.sg. Live machine-readable
-    SAML metadata with an IDPSSODescriptor and an AttributeAuthorityDescriptor. This is the surface
-    class universities operate that almost never gets catalogued, and it is a genuine institutional
-    fact — but the entityID and endpoints are on SingAREN's federation proxy, not on ntu.edu.sg, so
-    it is recorded as a tenancy rather than as NTU-operated infrastructure.
+    NTU's SAML 2.0 identity provider, registered in the Singapore Access Federation (SGAF) by SingAREN
+    and interfederated into eduGAIN, asserting the scope ntu.edu.sg. Live machine-readable SAML metadata
+    with an IDPSSODescriptor and an AttributeAuthorityDescriptor. This is the surface class universities
+    operate that almost never gets catalogued, and it is a genuine institutional fact — but the entityID
+    and endpoints are on SingAREN's federation proxy, not on ntu.edu.sg, so it is recorded as a tenancy
+    rather than as NTU-operated infrastructure.
   x-operator: tenant
   x-operator-evidence: >-
-    eduGAIN entity 879352, federation code SGAF, registration authority
-    https://www.singaren.net.sg, scope "ntu-entra.singaren.net.sg==ntu.edu.sg". The metadata
-    signing certificate is issued to SingAREN (CN sgaf.singaren.net.sg). A superseded entity 879351
-    is still published, labelled "Legacy AD FS - DO NOT USE".
+    eduGAIN entity 879352, federation code SGAF, registration authority https://www.singaren.net.sg, scope
+    "ntu-entra.singaren.net.sg==ntu.edu.sg". The metadata signing certificate is issued to SingAREN (CN
+    sgaf.singaren.net.sg). A superseded entity 879351 is still published, labelled "Legacy AD FS - DO
+    NOT USE".
   humanURL: https://technical.edugain.org/entities
   baseURL: https://ntu-entra.singaren.net.sg/simplesaml/saml2/idp/metadata.php
   tags:
@@ -216,6 +227,46 @@ apis:
     url: conformance/ntu-conformance.yml
   - type: x-authentication
     url: authentication/ntu-authentication.yml
+- aid: ntu:ntu-discover-api
+  name: Nanyang Technological University Discover API
+  description: The Discover API from Nanyang Technological University — 1 operation(s) for discover.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Discover
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-discover-api-openapi.yml
+- aid: ntu:ntu-items-api
+  name: Nanyang Technological University Items API
+  description: The Items API from Nanyang Technological University — 1 operation(s) for items.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-items-api-openapi.yml
+- aid: ntu:ntu-oai-pmh-api
+  name: Nanyang Technological University OAI PMH API
+  description: The OAI-PMH API from Nanyang Technological University — 1 operation(s) for oai-pmh.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - OAI-PMH
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-oai-pmh-api-openapi.yml
+- aid: ntu:ntu-root-api
+  name: Nanyang Technological University Root API
+  description: The Root API from Nanyang Technological University — 1 operation(s) for root.
+  humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+  baseURL: https://researchdata.ntu.edu.sg/api
+  tags:
+  - Root
+  properties:
+  - type: OpenAPI
+    url: openapi/ntu-root-api-openapi.yml
 common:
   - type: Website
     url: https://www.ntu.edu.sg/
