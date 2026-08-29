@@ -1,24 +1,35 @@
 {
   "provider": "ntu",
   "sources": [
-    "ntu-discover-api-openapi.yml",
-    "ntu-info-api-openapi.yml",
-    "ntu-items-api-openapi.yml",
-    "ntu-oai-pmh-api-openapi.yml",
-    "ntu-root-api-openapi.yml",
-    "ntu-search-api-openapi.yml"
+    "_original/ntu-drntu-data.yaml",
+    "_original/ntu-drntu-repo-oai.yaml",
+    "_original/ntu-drntu-repo-rest.yaml"
   ],
   "outputs": [
-    "ntu-discover-api-openapi.yml",
     "ntu-info-api-openapi.yml",
-    "ntu-items-api-openapi.yml",
+    "ntu-search-api-openapi.yml",
     "ntu-oai-pmh-api-openapi.yml",
-    "ntu-root-api-openapi.yml",
-    "ntu-search-api-openapi.yml"
+    "ntu-discover-api-openapi.yml",
+    "ntu-items-api-openapi.yml",
+    "ntu-root-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ntu-drntu-data.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ntu-drntu-data.yaml: declared missing tag: Info",
+    "ntu-drntu-data.yaml: declared missing tag: Search",
+    "ntu-drntu-repo-oai.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ntu-drntu-repo-oai.yaml: declared missing tag: OAI-PMH",
+    "ntu-drntu-repo-rest.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "ntu-drntu-repo-rest.yaml: declared missing tag: Discover",
+    "ntu-drntu-repo-rest.yaml: declared missing tag: Items",
+    "ntu-drntu-repo-rest.yaml: declared missing tag: Root"
+  ],
+  "skipped": [
+    "ntu-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ntu-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

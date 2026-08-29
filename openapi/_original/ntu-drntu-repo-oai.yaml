@@ -1,4 +1,9 @@
 openapi: 3.0.3
+# TENANT SURFACE — dr.ntu.edu.sg CNAMEs to ntu-cris.4science.cloud (4Science, the DSpace-CRIS
+# vendor). The data and the branding are NTU's; the platform and this REST contract are the
+# vendor's. Archived here as evidence of the tenant relationship. NOT registered in apis.yml
+# as an institution-operated contract and NOT to be promoted into openapi/ by refine-openapis.
+x-operator: tenant
 info:
   title: DR-NTU (Digital Repository) OAI-PMH
   description: >-

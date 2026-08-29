@@ -1,17 +1,15 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: DR-NTU (Data) Dataverse Discover OAI-PMH API
-  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
-  version: '6.1'
+  title: DR-NTU (Digital Repository) OAI PMH API
+  description: OpenAPI description of the OAI-PMH 2.0 metadata harvesting endpoint exposed by DR-NTU (Digital Repository of NTU). OAI-PMH is an HTTP GET protocol whose behaviour is selected by the "verb" query parameter; all responses are XML in the http://www.openarchives.org/OAI/2.0/ namespace. Verified against the live Identify response. The protocol itself is specified at https://www.openarchives.org/OAI/openarchivesprotocol.html.
+  version: '2.0'
   contact:
-    name: DR-NTU (Data)
-    url: https://researchdata.ntu.edu.sg/
-  license:
-    name: DR-NTU (Data) API Terms of Use
-    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+    name: DR-NTU (Digital Repository of NTU) Library
+    email: library@ntu.edu.sg
+    url: https://dr.ntu.edu.sg/home
 servers:
-- url: https://researchdata.ntu.edu.sg/api
-  description: DR-NTU (Data) production API
+- url: https://dr.ntu.edu.sg/oai
+  description: DR-NTU OAI-PMH endpoint
 tags:
 - name: OAI-PMH
 paths:
@@ -79,3 +77,4 @@ paths:
                 type: string
                 description: XML document rooted at OAI-PMH containing responseDate, request, and a verb-specific element. For Identify this includes repositoryName, baseURL, protocolVersion, earliestDatestamp, deletedRecord, and granularity.
               example: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\">\n  <responseDate>2026-06-03T00:00:00Z</responseDate>\n  <request verb=\"Identify\">https://dr.ntu.edu.sg/oai/request</request>\n  <Identify>\n    <repositoryName>DR-NTU (Digital Repository of NTU)</repositoryName>\n    <baseURL>https://dr.ntu.edu.sg/server/oai/request</baseURL>\n    <protocolVersion>2.0</protocolVersion>\n    <adminEmail>library@ntu.edu.sg</adminEmail>\n    <earliestDatestamp>2008-05-15T00:00:00Z</earliestDatestamp>\n    <deletedRecord>transient</deletedRecord>\n    <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>\n  </Identify>\n</OAI-PMH>\n"
+x-operator: tenant

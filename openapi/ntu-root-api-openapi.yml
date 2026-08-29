@@ -1,17 +1,14 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: DR-NTU (Data) Dataverse Discover Root API
-  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
-  version: '6.1'
+  title: DR-NTU (Digital Repository) DSpace REST Root API
+  description: Subset of the DSpace 7.6.3 (with DSpace-CRIS) HAL-based REST API as exposed by DR-NTU (Digital Repository of NTU). This description covers the publicly accessible, unauthenticated discovery operations verified against the live deployment at https://dr.ntu.edu.sg/server/api. Responses follow the HAL (Hypertext Application Language) convention with _embedded and _links. The full DSpace 7 REST contract (authenticated CRUD, submission, workflow) is documented upstream at https://wiki.lyrasis.org/display/DSDOC7x/REST+API and is intentionally not duplicated here.
+  version: 7.6.3
   contact:
-    name: DR-NTU (Data)
-    url: https://researchdata.ntu.edu.sg/
-  license:
-    name: DR-NTU (Data) API Terms of Use
-    url: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
+    name: DR-NTU (Digital Repository of NTU)
+    url: https://dr.ntu.edu.sg/home
 servers:
-- url: https://researchdata.ntu.edu.sg/api
-  description: DR-NTU (Data) production API
+- url: https://dr.ntu.edu.sg/server/api
+  description: DR-NTU (Digital Repository) production REST API
 tags:
 - name: Root
 paths:
@@ -30,3 +27,4 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
+x-operator: tenant

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: DR-NTU (Data) Dataverse Discover Info API
+  title: DR-NTU (Data) Dataverse Info API
   description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
   version: '6.1'
   contact:
@@ -49,5 +49,7 @@ components:
               type: string
               example: '6.1'
             build:
-              type: string
-              nullable: true
+              type:
+              - string
+              - 'null'
+x-operator: institution
