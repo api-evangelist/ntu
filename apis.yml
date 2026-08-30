@@ -243,6 +243,8 @@ apis:
   humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
   baseURL: https://researchdata.ntu.edu.sg/api
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
