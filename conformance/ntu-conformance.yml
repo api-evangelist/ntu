@@ -1,0 +1,147 @@
+# ntu — domain standard conformance under the Kin Score `education` regulatory regime.
+# REWARD-ONLY. Every entry below is a probe or a third-party registry record, not a prose claim.
+# Each hit carries its own x-operator: a standard implemented on a VENDOR-OPERATED tenant host is
+# not NTU's engineering, and is recorded here as a tenant conformance so it can never be read as
+# an institution-operated capability.
+generated: '2026-08-19'
+method: probed
+source: live probes 2026-08-19 + eduGAIN technical database + DataCite REST API + re3data.org API
+provider: ntu
+regime: education
+conformance:
+
+  - standard: oai-pmh
+    name: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+    status: conformant
+    x-operator: tenant
+    host: dr.ntu.edu.sg
+    evidence:
+      - url: https://dr.ntu.edu.sg/oai/request?verb=Identify
+        status: 200
+        detail: >-
+          Live OAI-PMH 2.0 Identify response. repositoryName "DR-NTU (Digital Repository of NTU)",
+          baseURL https://dr.ntu.edu.sg/server/oai/request, protocolVersion 2.0,
+          adminEmail library@ntu.edu.sg, earliestDatestamp 2008-05-15T02:56:52Z,
+          repositoryIdentifier dr.ntu.edu.sg, granularity YYYY-MM-DDThh:mm:ssZ.
+      - url: https://dr.ntu.edu.sg/oai/request?verb=ListMetadataFormats
+        status: 200
+        detail: >-
+          11 metadata prefixes served: oai_dc, qdc, mods, mets, didl, ore, rdf, marc, dim,
+          etdms, uketd_dc.
+      - url: https://dr.ntu.edu.sg/server/oai/openairecris?verb=Identify
+        status: 200
+        detail: >-
+          Second OAI-PMH base declaring OpenAIRE CERIF-CRIS 1.1 compatibility
+          (openaire.eu/cerif-profile/vocab/OpenAIRE_Service_Compatibility#1.1).
+    operator_note: >-
+      The protocol endpoint answers on NTU's own hostname, but dr.ntu.edu.sg CNAMEs to
+      ntu-cris.4science.cloud. The OAI-PMH implementation is DSpace-CRIS's, operated by 4Science.
+      NTU's library administers the content and is the adminEmail of record.
+
+  - standard: oai-pmh
+    name: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+    status: declared-unverified
+    x-operator: institution
+    host: researchdata.ntu.edu.sg
+    evidence:
+      - url: https://researchdata.ntu.edu.sg/oai?verb=Identify
+        status: 403
+        detail: >-
+          Citrix bot-management challenge (Set-Cookie citrix_bot_id, honeypot link /trap.html).
+          Same 403 is returned for the site root and robots.txt, so this is an edge block on our
+          probe, not a decommissioned endpoint.
+      - url: https://www.re3data.org/api/v1/repository/r3d100012440
+        status: 200
+        detail: >-
+          Independent registry record for DR-NTU (Data) declares
+          <r3d:api apiType="OAI-PMH">https://researchdata.ntu.edu.sg/oai?verb=Identify</r3d:api>.
+    operator_note: >-
+      NOT counted as a verified conformance. Recorded as declared-unverified because the only
+      evidence is a third-party registry, and the endpoint itself could not be reached from here.
+
+  - standard: datacite
+    name: DataCite DOI registration
+    status: conformant
+    x-operator: institution
+    host: researchdata.ntu.edu.sg
+    evidence:
+      - url: https://api.datacite.org/clients/gdcc.ntu
+        status: 200
+        detail: >-
+          DataCite repository client GDCC.NTU — "Nanyang Technological University Research Data
+          Repositories", clientType repository, url https://researchdata.ntu.edu.sg/,
+          created 2018-09-19, isActive true.
+      - url: https://api.datacite.org/dois?client-id=gdcc.ntu
+        status: 200
+        detail: >-
+          3,625 DOIs registered under NTU's own DataCite client, prefix 10.21979, publisher
+          "DR-NTU (Data)", landing pages on researchdata.ntu.edu.sg. Most recent DOI created
+          2026-08-17 — the repository is actively minting, which is the independent proof that
+          the 403 above is an edge block and not a dead host.
+    operator_note: >-
+      NTU holds the DataCite client and the prefix in its own name. This is institution-operated
+      persistent-identifier infrastructure.
+
+  - standard: saml
+    name: SAML 2.0 identity provider metadata
+    status: conformant
+    x-operator: tenant
+    host: ntu-entra.singaren.net.sg
+    evidence:
+      - url: https://ntu-entra.singaren.net.sg/simplesaml/saml2/idp/metadata.php
+        status: 200
+        detail: >-
+          Live SAML 2.0 EntityDescriptor, content-type application/samlmetadata+xml,
+          IDPSSODescriptor with protocolSupportEnumeration urn:oasis:names:tc:SAML:2.0:protocol
+          and a signing KeyDescriptor issued to SingAREN (CN sgaf.singaren.net.sg).
+      - url: https://technical.edugain.org/api.php?action=list_entities&format=json
+        status: 200
+        detail: >-
+          eduGAIN entity 879352, displayName "NTU - Nanyang Technological University",
+          federation code SGAF, registration authority https://www.singaren.net.sg,
+          scope "ntu-entra.singaren.net.sg==ntu.edu.sg", roles IDPSSODescriptor +
+          AttributeAuthorityDescriptor, first seen 2026-04-29.
+    operator_note: >-
+      NTU's federated identity is real and interfederated into eduGAIN, but the entityID and the
+      SAML endpoints live on SingAREN's SGAF proxy, not on ntu.edu.sg. The asserted scope is
+      ntu.edu.sg. Tenant, not institution — NTU is a member of the federation, not the operator
+      of the metadata endpoint.
+
+  - standard: shibboleth
+    name: Shibboleth / eduGAIN interfederation membership
+    status: conformant
+    x-operator: tenant
+    host: ntu-entra.singaren.net.sg
+    evidence:
+      - url: https://mds.edugain.org/edugain-v2.xml
+        status: 200
+        detail: >-
+          NTU's IdP entity is published in the eduGAIN metadata aggregate via SGAF. A superseded
+          entity (879351, "NTU - Nanyang Technological University (Legacy AD FS - DO NOT USE)",
+          first seen 2020-02-28) is still present in the aggregate alongside the current one.
+    operator_note: Same tenant basis as the saml entry above.
+
+not_found:
+  - standard: orcid
+    detail: >-
+      DSpace-CRIS at dr.ntu.edu.sg exposes 158,100 research-profile records and an orcid search
+      facet, but no ORCID identifier appeared in the metadata of the Person entities sampled via
+      /server/api/discover/search/objects?configuration=researchprofiles&f.entityType=Person.
+      Not claimed.
+  - standard: crossref
+    detail: NTU registers research-data DOIs with DataCite, not Crossref. No Crossref member record probed.
+  - standard: scim
+    detail: No SCIM endpoint found on any NTU host.
+  - standard: lti
+    detail: >-
+      NTULearn (ntulearn.ntu.edu.sg, HTTP 200) is a Blackboard/Anthology deployment and LTI is a
+      platform capability of that vendor, not an NTU-published surface. No NTU-operated LTI
+      registration or tool endpoint found.
+  - standard: oneroster
+    detail: Not found.
+  - standard: ed-fi
+    detail: Not found.
+  - standard: caliper
+    detail: Not found.
+  - standard: qti
+    detail: Not found.

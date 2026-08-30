@@ -1,0 +1,20 @@
+# ntu — authorization scopes.
+generated: '2026-08-19'
+method: probed
+source: live probes 2026-08-19 of every NTU surface in this repo
+provider: ntu
+scopes: []
+finding: none
+detail: >-
+  No scope-based authorization exists on any surface attributed to Nanyang Technological
+  University. The institution-operated DR-NTU (Data) Dataverse API uses a single opaque
+  X-Dataverse-key token with no scope vocabulary. The tenant DSpace-CRIS API uses a JWT bearer
+  token whose authorization is DSpace group membership, not scopes. The SGAF/eduGAIN SAML IdP
+  releases attributes, not OAuth scopes, and its attribute release policy is federation-side and
+  not published by NTU. There is no OAuth 2.0 or OIDC authorization server on any ntu.edu.sg host:
+  https://api.ntu.edu.sg/.well-known/openid-configuration returns 404.
+evidence:
+  - url: https://api.ntu.edu.sg/.well-known/openid-configuration
+    status: 404
+  - url: https://dr.ntu.edu.sg/server/api
+    status: 200
