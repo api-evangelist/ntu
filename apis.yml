@@ -164,6 +164,11 @@ apis:
   - Research Repository
   - Institutional Repository
   - DSpace
+  - CRI
+  tags_raw:
+  - Research Repository
+  - Institutional Repository
+  - DSpace
   - CRIS
   properties:
   - type: Documentation
