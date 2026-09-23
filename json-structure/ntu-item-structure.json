@@ -1,13 +1,24 @@
 {
   "$schema": "https://json-structure.org/meta/core/v0/#",
   "$id": "https://dr.ntu.edu.sg/structures/item.json",
+  "x-generated": "2026-08-19",
+  "x-method": "derived",
+  "x-source": "openapi/_original/ntu-drntu-repo-rest.yaml",
+  "x-operator": "tenant",
+  "x-operator-note": "dr.ntu.edu.sg CNAMEs to ntu-cris.4science.cloud. NTU's repository and NTU's data, running on 4Science's DSpace-CRIS platform. The shape below is the vendor's, not NTU's engineering.",
   "name": "NtuRepositoryItem",
   "type": "object",
   "description": "JSON Structure for a DR-NTU (Digital Repository) DSpace item.",
   "properties": {
-    "uuid": { "type": "string" },
-    "name": { "type": "string" },
-    "handle": { "type": "string" },
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "handle": {
+      "type": "string"
+    },
     "metadata": {
       "type": "map",
       "values": {
@@ -16,21 +27,47 @@
           "type": "object",
           "name": "MetadataValue",
           "properties": {
-            "value": { "type": "string" },
-            "language": { "type": "string" },
-            "authority": { "type": "string" },
-            "confidence": { "type": "int32" },
-            "place": { "type": "int32" }
+            "value": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            },
+            "authority": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "int32"
+            },
+            "place": {
+              "type": "int32"
+            }
           },
-          "required": ["value"]
+          "required": [
+            "value"
+          ]
         }
       }
     },
-    "inArchive": { "type": "boolean" },
-    "discoverable": { "type": "boolean" },
-    "withdrawn": { "type": "boolean" },
-    "type": { "type": "string" },
-    "uniqueType": { "type": "string" }
+    "inArchive": {
+      "type": "boolean"
+    },
+    "discoverable": {
+      "type": "boolean"
+    },
+    "withdrawn": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "uniqueType": {
+      "type": "string"
+    }
   },
-  "required": ["uuid", "type", "metadata"]
+  "required": [
+    "uuid",
+    "type",
+    "metadata"
+  ]
 }

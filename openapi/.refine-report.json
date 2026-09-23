@@ -26,10 +26,15 @@
     "ntu-drntu-repo-rest.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "ntu-drntu-repo-rest.yaml: declared missing tag: Discover",
     "ntu-drntu-repo-rest.yaml: declared missing tag: Items",
-    "ntu-drntu-repo-rest.yaml: declared missing tag: Root"
+    "ntu-drntu-repo-rest.yaml: declared missing tag: Root",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
+    "ntu-discover-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ntu-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ntu-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ntu-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ntu-root-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "ntu-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

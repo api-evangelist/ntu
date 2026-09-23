@@ -1,13 +1,27 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dr.ntu.edu.sg/schemas/item.json",
+  "x-generated": "2026-08-19",
+  "x-method": "derived",
+  "x-source": "openapi/_original/ntu-drntu-repo-rest.yaml",
+  "x-operator": "tenant",
+  "x-operator-note": "dr.ntu.edu.sg CNAMEs to ntu-cris.4science.cloud. NTU's repository and NTU's data, running on 4Science's DSpace-CRIS platform. The shape below is the vendor's, not NTU's engineering.",
   "title": "DR-NTU (Digital Repository) Item",
   "description": "A DSpace 7 item resource as embedded in discovery search results from DR-NTU (Digital Repository of NTU).",
   "type": "object",
-  "required": ["uuid", "type", "metadata"],
+  "required": [
+    "uuid",
+    "type",
+    "metadata"
+  ],
   "properties": {
-    "uuid": { "type": "string", "format": "uuid" },
-    "name": { "type": "string" },
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
     "handle": {
       "type": "string",
       "description": "Persistent handle, e.g. 10356/213929."
@@ -17,26 +31,60 @@
       "description": "Map of metadata field keys (e.g. dc.title) to arrays of value objects.",
       "additionalProperties": {
         "type": "array",
-        "items": { "$ref": "#/$defs/metadataValue" }
+        "items": {
+          "$ref": "#/$defs/metadataValue"
+        }
       }
     },
-    "inArchive": { "type": "boolean" },
-    "discoverable": { "type": "boolean" },
-    "withdrawn": { "type": "boolean" },
-    "type": { "type": "string", "const": "item" },
-    "uniqueType": { "type": "string" }
+    "inArchive": {
+      "type": "boolean"
+    },
+    "discoverable": {
+      "type": "boolean"
+    },
+    "withdrawn": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string",
+      "const": "item"
+    },
+    "uniqueType": {
+      "type": "string"
+    }
   },
   "additionalProperties": true,
   "$defs": {
     "metadataValue": {
       "type": "object",
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "properties": {
-        "value": { "type": "string" },
-        "language": { "type": ["string", "null"] },
-        "authority": { "type": ["string", "null"] },
-        "confidence": { "type": ["integer", "null"] },
-        "place": { "type": "integer" }
+        "value": {
+          "type": "string"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authority": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "place": {
+          "type": "integer"
+        }
       }
     }
   }

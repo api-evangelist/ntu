@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: DR-NTU (Digital Repository) DSpace REST Root API
-  description: Subset of the DSpace 7.6.3 (with DSpace-CRIS) HAL-based REST API as exposed by DR-NTU (Digital Repository of NTU). This description covers the publicly accessible, unauthenticated discovery operations verified against the live deployment at https://dr.ntu.edu.sg/server/api. Responses follow the HAL (Hypertext Application Language) convention with _embedded and _links. The full DSpace 7 REST contract (authenticated CRUD, submission, workflow) is documented upstream at https://wiki.lyrasis.org/display/DSDOC7x/REST+API and is intentionally not duplicated here.
+  description: Subset of the DSpace 7.6.3 (with DSpace-CRIS) HAL-based REST API as exposed by DR-NTU (Digital Repository of NTU).
   version: 7.6.3
   contact:
     name: DR-NTU (Digital Repository of NTU)

@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: DR-NTU (Data) Dataverse Search API
-  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository. This description covers the publicly accessible, unauthenticated discovery and access operations that were verified against the live deployment. Field names and the response envelope reflect the actual Dataverse Search API and version endpoint. Authenticated administrative and write operations are documented upstream at https://guides.dataverse.org/en/latest/api/ and are intentionally omitted here.
+  description: Subset of the Dataverse 6.1 HTTP API as exposed by DR-NTU (Data), NTU's institutional open-access research data repository.
   version: '6.1'
   contact:
     name: DR-NTU (Data)
@@ -63,30 +63,6 @@ paths:
                 $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
-    SearchResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
-        data:
-          type: object
-          properties:
-            q:
-              type: string
-            total_count:
-              type: integer
-            start:
-              type: integer
-            spelling_alternatives:
-              type: object
-              additionalProperties: true
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/SearchItem'
-            count_in_response:
-              type: integer
     SearchItem:
       type: object
       description: A single search hit (dataset shape shown; files/dataverses share the envelope).
@@ -158,4 +134,28 @@ components:
           type: array
           items:
             type: string
+    SearchResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        data:
+          type: object
+          properties:
+            q:
+              type: string
+            total_count:
+              type: integer
+            start:
+              type: integer
+            spelling_alternatives:
+              type: object
+              additionalProperties: true
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/SearchItem'
+            count_in_response:
+              type: integer
 x-operator: institution

@@ -11,7 +11,7 @@ servers:
 - url: https://dr.ntu.edu.sg/oai
   description: DR-NTU OAI-PMH endpoint
 tags:
-- name: OAI-PMH
+- name: oai pmh
 paths:
   /request:
     get:
@@ -19,7 +19,7 @@ paths:
       summary: OAI-PMH request dispatcher
       description: Single OAI-PMH endpoint. The "verb" parameter selects the operation (Identify, ListMetadataFormats, ListSets, ListIdentifiers, ListRecords, GetRecord). Other parameters depend on the chosen verb.
       tags:
-      - OAI-PMH
+      - oai pmh
       parameters:
       - name: verb
         in: query

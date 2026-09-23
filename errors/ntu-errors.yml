@@ -1,0 +1,46 @@
+# ntu — error semantics observed on live surfaces.
+generated: '2026-08-19'
+method: probed
+source: live probes 2026-08-19
+provider: ntu
+errors:
+
+  - surface: api.ntu.edu.sg
+    x-operator: institution
+    status: 404
+    content_type: application/json
+    body: '{ "statusCode": 404, "message": "Resource not found" }'
+    detail: >-
+      A consistent machine-readable error envelope with a statusCode/message pair. It is the only
+      structured error shape NTU serves from a host it owns outright. Not RFC 9457
+      (application/problem+json), and there is no type, title, detail or instance member.
+    rfc9457: false
+    evidence:
+      - url: https://api.ntu.edu.sg/openapi.json
+        status: 404
+
+  - surface: DR-NTU (Digital Repository) — DSpace-CRIS REST API
+    x-operator: tenant
+    detail: >-
+      DSpace 7 returns HAL error documents with timestamp/status/error/message/path. That envelope
+      is the DSpace platform's, shipped by 4Science, and is not NTU's design.
+    rfc9457: false
+
+  - surface: DR-NTU (Data) — Dataverse REST API
+    x-operator: institution
+    detail: >-
+      Dataverse returns {"status":"ERROR","message":"..."} with the HTTP status. Could not be
+      re-verified 2026-08-19: the edge returns a Citrix bot-management 403 (text/html,
+      iso-8859-1, honeypot link to /trap.html) ahead of the application on every path, so the
+      only error body reachable from here is the WAF's, not the API's.
+    rfc9457: false
+    evidence:
+      - url: https://researchdata.ntu.edu.sg/api/info/version
+        status: 403
+
+summary:
+  rfc9457_adoption: none
+  structured_error_envelope: partial
+  note: >-
+    No error catalogue, error-code reference, or problem-type registry is published by NTU for any
+    surface.

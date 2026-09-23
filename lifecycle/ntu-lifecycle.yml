@@ -1,0 +1,56 @@
+# ntu — surface lifecycle and change posture.
+generated: '2026-08-19'
+method: probed
+source: live probes 2026-08-19 + eduGAIN technical database + DataCite REST API
+provider: ntu
+lifecycle:
+
+  - surface: DR-NTU (Data) — Dataverse REST API
+    x-operator: institution
+    status: active
+    versioning: >-
+      Versioned by the underlying Dataverse platform release (6.1 as archived), surfaced at
+      /api/info/version. NTU publishes no API version of its own and no deprecation policy.
+    evidence_of_activity:
+      - url: https://api.datacite.org/dois?client-id=gdcc.ntu
+        status: 200
+        detail: Most recent DOI minted 2026-08-17, two days before this profile. Repository is live.
+    deprecation_policy: none published
+    changelog: none published
+    status_page: none — https://status.ntu.edu.sg/ does not resolve
+
+  - surface: DR-NTU (Digital Repository) — DSpace-CRIS REST API + OAI-PMH
+    x-operator: tenant
+    status: active
+    versioning: >-
+      DSpace 7.6.3 with cris-2023.02.07, both self-reported at /server/api. Platform-versioned by
+      Lyrasis and 4Science; NTU does not control the release cadence.
+    earliest_record: 2008-05-15T02:56:52Z (OAI-PMH Identify earliestDatestamp)
+    deprecation_policy: none published by NTU
+    changelog: upstream only (DSpace release notes)
+
+  - surface: NTU identity federation (SGAF / eduGAIN)
+    x-operator: tenant
+    status: active
+    detail: >-
+      Current entity 879352 (Entra-backed) first seen 2026-04-29. The superseded entity 879351 is
+      still published in the eduGAIN aggregate and is explicitly labelled
+      "Legacy AD FS - DO NOT USE" in its own displayName, dated 2020-02-28. A deprecated entity
+      left in an interfederation aggregate with the warning carried in the display name is the
+      closest thing to a published deprecation signal NTU has.
+    deprecation_signal: in-band, via entity displayName
+
+  - surface: api.ntu.edu.sg
+    x-operator: institution
+    status: live-but-undocumented
+    detail: >-
+      Gateway answers on every path with a JSON 404. No route, version, changelog or documentation
+      is discoverable. Cannot be dated or versioned.
+
+summary:
+  deprecation_policy_published: false
+  changelog_published: false
+  status_page_published: false
+  note: >-
+    NTU operates no public change-management surface for any API. Consumers of DR-NTU (Data) and
+    DR-NTU (Digital Repository) track the upstream platform vendors' release notes, not NTU's.

@@ -1,3 +1,8 @@
+# x-operator: institution — this ruleset is asserted BY API Evangelist over NTU's
+# institution-operated DR-NTU (Data) contracts. It is not published by NTU.
+x-generated: '2026-08-19'
+x-method: generated
+x-source: openapi/ntu-info-api-openapi.yml, openapi/ntu-search-api-openapi.yml
 formats:
   - oas3
 rules:

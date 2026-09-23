@@ -1,4 +1,9 @@
 {
+  "x-generated": "2026-08-19",
+  "x-method": "derived",
+  "x-source": "openapi/_original/ntu-drntu-data.yaml",
+  "x-operator": "institution",
+  "x-operator-note": "researchdata.ntu.edu.sg CNAMEs to dataverse.ntu.edu.sg -> 155.69.19.238; whois org-name 'Nanyang Technological University' (NTUNET1, SG). NTU self-hosts this Dataverse.",
   "request": {
     "method": "GET",
     "url": "https://researchdata.ntu.edu.sg/api/search?q=*&type=dataset&per_page=1"
@@ -22,8 +27,15 @@
           "identifier_of_dataverse": "PRPF40B-KO-RNA",
           "name_of_dataverse": "Supporting data for Lorenzini et al RNA 2019",
           "storageIdentifier": "file://10.21979/N9/MUULD6",
-          "keywords": ["DEGs", "Gene expression", "RNA sequencing data", "PRPF40B"],
-          "subjects": ["Medicine, Health and Life Sciences"],
+          "keywords": [
+            "DEGs",
+            "Gene expression",
+            "RNA sequencing data",
+            "PRPF40B"
+          ],
+          "subjects": [
+            "Medicine, Health and Life Sciences"
+          ],
           "fileCount": 1,
           "versionId": 937,
           "versionState": "RELEASED",
@@ -32,9 +44,14 @@
           "createdAt": "2019-05-09T05:18:09Z",
           "updatedAt": "2020-05-19T09:47:08Z",
           "contacts": [
-            { "name": "Roca Castella, Francesc Xavier", "affiliation": "Nanyang Technological University" }
+            {
+              "name": "Roca Castella, Francesc Xavier",
+              "affiliation": "Nanyang Technological University"
+            }
           ],
-          "authors": ["Roca Castella, Francesc Xavier"]
+          "authors": [
+            "Roca Castella, Francesc Xavier"
+          ]
         }
       ],
       "count_in_response": 1

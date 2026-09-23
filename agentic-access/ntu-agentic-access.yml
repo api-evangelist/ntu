@@ -1,9 +1,9 @@
-generated: '2026-07-15'
+generated: '2026-08-19'
 method: generated
-source: openapi/ntu-drntu-data.yaml, openapi/ntu-drntu-repo-oai.yaml, openapi/ntu-drntu-repo-rest.yaml
-description: Recommended x-agentic-access execution contracts, classified heuristically from
-  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
-  audience per deployment. See research/curity/agentic-governance/.
+source: openapi/_original/ntu-drntu-data.yaml, openapi/_original/ntu-drntu-repo-rest.yaml, openapi/_original/ntu-drntu-repo-oai.yaml
+description: Recommended x-agentic-access execution contracts, classified heuristically from the OpenAPI.
+  A governance starting point for exposing this API to AI agents — review and bind audience per deployment.
+  See research/curity/agentic-governance/.
 summary:
   operations: 6
   by_action_class:
@@ -11,6 +11,9 @@ summary:
   by_consequence:
     read: 6
   human_in_the_loop_required: 0
+  by_operator:
+    institution: 2
+    tenant: 4
 operations:
 - path: /info/version
   method: get
@@ -22,6 +25,8 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: institution
+  x-host: researchdata.ntu.edu.sg
 - path: /search
   method: get
   operationId: search
@@ -32,6 +37,8 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: institution
+  x-host: researchdata.ntu.edu.sg
 - path: /request
   method: get
   operationId: oaiRequest
@@ -42,6 +49,8 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: tenant
+  x-host: dr.ntu.edu.sg
 - path: /
   method: get
   operationId: getApiRoot
@@ -52,6 +61,8 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: tenant
+  x-host: dr.ntu.edu.sg
 - path: /discover/search/objects
   method: get
   operationId: discoverSearchObjects
@@ -62,6 +73,8 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: tenant
+  x-host: dr.ntu.edu.sg
 - path: /core/items/{uuid}
   method: get
   operationId: getItem
@@ -72,3 +85,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+  x-operator: tenant
+  x-host: dr.ntu.edu.sg
+x-operator: mixed
+x-operator-note: 2 of 6 operations are institution-operated (DR-NTU (Data), self-hosted Dataverse on NTU
+  network). 4 are tenant-operated (DR-NTU Digital Repository, DSpace-CRIS on 4Science cloud). Every operation
+  below carries its own x-operator; do not read the totals as NTU-operated.

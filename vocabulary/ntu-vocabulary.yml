@@ -1,3 +1,11 @@
+# x-operator: MIXED — see per-term notes below.
+#   institution : DR-NTU (Data) / Dataverse terms. researchdata.ntu.edu.sg is NTU-hosted
+#                 (CNAME dataverse.ntu.edu.sg -> 155.69.19.238, whois = Nanyang Technological University).
+#   tenant      : DSpace / DSpace-CRIS / OAI-PMH terms. dr.ntu.edu.sg CNAMEs to
+#                 ntu-cris.4science.cloud; the vocabulary is the vendor platform's.
+generated: '2026-08-19'
+method: derived
+source: openapi/_original/ntu-drntu-data.yaml, openapi/_original/ntu-drntu-repo-rest.yaml, openapi/_original/ntu-drntu-repo-oai.yaml
 vocabulary:
   name: NTU Repository & Research Data Vocabulary
   description: >-

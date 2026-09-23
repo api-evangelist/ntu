@@ -1,4 +1,9 @@
 {
+  "x-generated": "2026-08-19",
+  "x-method": "derived",
+  "x-source": "openapi/_original/ntu-drntu-repo-rest.yaml",
+  "x-operator": "tenant",
+  "x-operator-note": "dr.ntu.edu.sg CNAMEs to ntu-cris.4science.cloud. NTU's repository and NTU's data, running on 4Science's DSpace-CRIS platform. The shape below is the vendor's, not NTU's engineering.",
   "request": {
     "method": "GET",
     "url": "https://dr.ntu.edu.sg/server/api/discover/search/objects?size=1&dsoType=item"
@@ -23,15 +28,51 @@
                   "name": "Jailbreaking large language models via prompt engineering III",
                   "handle": "10356/213929",
                   "metadata": {
-                    "dc.contributor.author": [{ "value": "Mendoza, Jose Matthew Abram" }],
-                    "dc.contributor.school": [{ "value": "College of Computing and Data Science" }],
-                    "dc.date.issued": [{ "value": "2026" }],
-                    "dc.identifier.uri": [{ "value": "https://hdl.handle.net/10356/213929" }],
-                    "dc.publisher": [{ "value": "Nanyang Technological University" }],
-                    "dc.subject": [{ "value": "Computer and Information Science" }],
-                    "dc.title": [{ "value": "Jailbreaking large language models via prompt engineering III" }],
-                    "dc.type": [{ "value": "Final Year Project (FYP)" }],
-                    "dspace.entity.type": [{ "value": "Publication" }]
+                    "dc.contributor.author": [
+                      {
+                        "value": "Mendoza, Jose Matthew Abram"
+                      }
+                    ],
+                    "dc.contributor.school": [
+                      {
+                        "value": "College of Computing and Data Science"
+                      }
+                    ],
+                    "dc.date.issued": [
+                      {
+                        "value": "2026"
+                      }
+                    ],
+                    "dc.identifier.uri": [
+                      {
+                        "value": "https://hdl.handle.net/10356/213929"
+                      }
+                    ],
+                    "dc.publisher": [
+                      {
+                        "value": "Nanyang Technological University"
+                      }
+                    ],
+                    "dc.subject": [
+                      {
+                        "value": "Computer and Information Science"
+                      }
+                    ],
+                    "dc.title": [
+                      {
+                        "value": "Jailbreaking large language models via prompt engineering III"
+                      }
+                    ],
+                    "dc.type": [
+                      {
+                        "value": "Final Year Project (FYP)"
+                      }
+                    ],
+                    "dspace.entity.type": [
+                      {
+                        "value": "Publication"
+                      }
+                    ]
                   },
                   "inArchive": true,
                   "discoverable": true,

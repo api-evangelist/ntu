@@ -1,4 +1,9 @@
 {
+  "x-generated": "2026-08-19",
+  "x-method": "derived",
+  "x-source": "openapi/_original/ntu-drntu-data.yaml + observed DR-NTU (Data) responses",
+  "x-operator": "institution",
+  "x-operator-note": "Terms covering the tenant DSpace surface are retained but are the vendor platform's vocabulary.",
   "@context": {
     "@version": 1.1,
     "schema": "https://schema.org/",
@@ -11,18 +16,50 @@
     "Dataset": "schema:Dataset",
     "ScholarlyArticle": "schema:ScholarlyArticle",
     "identifier": "schema:identifier",
-    "global_id": { "@id": "dcterms:identifier" },
-    "handle": { "@id": "dcterms:identifier" },
-    "doi": { "@id": "schema:identifier" },
-    "publisher": { "@id": "schema:publisher" },
-    "datePublished": { "@id": "schema:datePublished", "@type": "schema:Date" },
-    "published_at": { "@id": "schema:datePublished", "@type": "schema:DateTime" },
-    "createdAt": { "@id": "schema:dateCreated", "@type": "schema:DateTime" },
-    "updatedAt": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
-    "keywords": { "@id": "schema:keywords", "@container": "@set" },
-    "subjects": { "@id": "schema:about", "@container": "@set" },
-    "authors": { "@id": "schema:author", "@container": "@set" },
-    "contacts": { "@id": "schema:contactPoint", "@container": "@set" },
+    "global_id": {
+      "@id": "dcterms:identifier"
+    },
+    "handle": {
+      "@id": "dcterms:identifier"
+    },
+    "doi": {
+      "@id": "schema:identifier"
+    },
+    "publisher": {
+      "@id": "schema:publisher"
+    },
+    "datePublished": {
+      "@id": "schema:datePublished",
+      "@type": "schema:Date"
+    },
+    "published_at": {
+      "@id": "schema:datePublished",
+      "@type": "schema:DateTime"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "schema:DateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "schema:DateTime"
+    },
+    "keywords": {
+      "@id": "schema:keywords",
+      "@container": "@set"
+    },
+    "subjects": {
+      "@id": "schema:about",
+      "@container": "@set"
+    },
+    "authors": {
+      "@id": "schema:author",
+      "@container": "@set"
+    },
+    "contacts": {
+      "@id": "schema:contactPoint",
+      "@container": "@set"
+    },
     "affiliation": "schema:affiliation",
     "title": "dcterms:title",
     "dc.title": "dcterms:title",
