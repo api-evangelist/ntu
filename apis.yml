@@ -258,7 +258,7 @@ apis:
   name: Nanyang Technological University OAI PMH API
   description: The OAI-PMH API from Nanyang Technological University — 1 operation(s) for oai-pmh.
   humanURL: https://libguides.ntu.edu.sg/drntudataguidespolicies/APITermsOfUse
-  baseURL: https://researchdata.ntu.edu.sg/api
+  baseURL: https://dr.ntu.edu.sg/oai/request
   tags:
   - OAI-PMH
   properties:

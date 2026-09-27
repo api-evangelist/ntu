@@ -63,6 +63,37 @@ paths:
                 $ref: '#/components/schemas/DiscoverSearchResult'
 components:
   schemas:
+    Item:
+      type: object
+      description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          description: Persistent handle, e.g. 10356/213929.
+        metadata:
+          type: object
+          description: Map of metadata field keys (e.g. dc.title, dc.contributor.author) to arrays of value objects.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/MetadataValue'
+        inArchive:
+          type: boolean
+        discoverable:
+          type: boolean
+        withdrawn:
+          type: boolean
+        type:
+          type: string
+          example: item
+        uniqueType:
+          type: string
+          example: core.item
     MetadataValue:
       type: object
       properties:
@@ -81,6 +112,17 @@ components:
           - integer
           - 'null'
         place:
+          type: integer
+    Page:
+      type: object
+      properties:
+        number:
+          type: integer
+        size:
+          type: integer
+        totalPages:
+          type: integer
+        totalElements:
           type: integer
     DiscoverSearchResult:
       type: object
@@ -120,46 +162,4 @@ components:
                                 $ref: '#/components/schemas/Item'
                 page:
                   $ref: '#/components/schemas/Page'
-    Page:
-      type: object
-      properties:
-        number:
-          type: integer
-        size:
-          type: integer
-        totalPages:
-          type: integer
-        totalElements:
-          type: integer
-    Item:
-      type: object
-      description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
-      properties:
-        uuid:
-          type: string
-          format: uuid
-        name:
-          type: string
-        handle:
-          type: string
-          description: Persistent handle, e.g. 10356/213929.
-        metadata:
-          type: object
-          description: Map of metadata field keys (e.g. dc.title, dc.contributor.author) to arrays of value objects.
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/MetadataValue'
-        inArchive:
-          type: boolean
-        discoverable:
-          type: boolean
-        withdrawn:
-          type: boolean
-        type:
-          type: string
-          example: item
-        uniqueType:
-          type: string
-          example: core.item
 x-operator: tenant

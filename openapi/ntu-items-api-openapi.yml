@@ -37,25 +37,6 @@ paths:
           description: Authentication required for this resource
 components:
   schemas:
-    MetadataValue:
-      type: object
-      properties:
-        value:
-          type: string
-        language:
-          type:
-          - string
-          - 'null'
-        authority:
-          type:
-          - string
-          - 'null'
-        confidence:
-          type:
-          - integer
-          - 'null'
-        place:
-          type: integer
     Item:
       type: object
       description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
@@ -87,4 +68,23 @@ components:
         uniqueType:
           type: string
           example: core.item
+    MetadataValue:
+      type: object
+      properties:
+        value:
+          type: string
+        language:
+          type:
+          - string
+          - 'null'
+        authority:
+          type:
+          - string
+          - 'null'
+        confidence:
+          type:
+          - integer
+          - 'null'
+        place:
+          type: integer
 x-operator: tenant
