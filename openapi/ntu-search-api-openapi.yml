@@ -63,6 +63,30 @@ paths:
                 $ref: '#/components/schemas/SearchResponse'
 components:
   schemas:
+    SearchResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        data:
+          type: object
+          properties:
+            q:
+              type: string
+            total_count:
+              type: integer
+            start:
+              type: integer
+            spelling_alternatives:
+              type: object
+              additionalProperties: true
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/SearchItem'
+            count_in_response:
+              type: integer
     SearchItem:
       type: object
       description: A single search hit (dataset shape shown; files/dataverses share the envelope).
@@ -134,28 +158,4 @@ components:
           type: array
           items:
             type: string
-    SearchResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
-        data:
-          type: object
-          properties:
-            q:
-              type: string
-            total_count:
-              type: integer
-            start:
-              type: integer
-            spelling_alternatives:
-              type: object
-              additionalProperties: true
-            items:
-              type: array
-              items:
-                $ref: '#/components/schemas/SearchItem'
-            count_in_response:
-              type: integer
 x-operator: institution
