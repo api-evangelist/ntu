@@ -63,6 +63,17 @@ paths:
                 $ref: '#/components/schemas/DiscoverSearchResult'
 components:
   schemas:
+    Page:
+      type: object
+      properties:
+        number:
+          type: integer
+        size:
+          type: integer
+        totalPages:
+          type: integer
+        totalElements:
+          type: integer
     Item:
       type: object
       description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
@@ -94,36 +105,6 @@ components:
         uniqueType:
           type: string
           example: core.item
-    MetadataValue:
-      type: object
-      properties:
-        value:
-          type: string
-        language:
-          type:
-          - string
-          - 'null'
-        authority:
-          type:
-          - string
-          - 'null'
-        confidence:
-          type:
-          - integer
-          - 'null'
-        place:
-          type: integer
-    Page:
-      type: object
-      properties:
-        number:
-          type: integer
-        size:
-          type: integer
-        totalPages:
-          type: integer
-        totalElements:
-          type: integer
     DiscoverSearchResult:
       type: object
       properties:
@@ -162,4 +143,23 @@ components:
                                 $ref: '#/components/schemas/Item'
                 page:
                   $ref: '#/components/schemas/Page'
+    MetadataValue:
+      type: object
+      properties:
+        value:
+          type: string
+        language:
+          type:
+          - string
+          - 'null'
+        authority:
+          type:
+          - string
+          - 'null'
+        confidence:
+          type:
+          - integer
+          - 'null'
+        place:
+          type: integer
 x-operator: tenant
