@@ -65,7 +65,7 @@ tags:
   - OAI-PMH
 tags_country: Singapore
 created: '2026-06-03'
-modified: '2026-08-19'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 x-coverage:
   state: unreadable
@@ -275,6 +275,8 @@ apis:
   - type: OpenAPI
     url: openapi/ntu-root-api-openapi.yml
 common:
+  - url: https://www.ntu.edu.sg/admissions/graduate/coursework/articles
+    type: Blog
   - type: Website
     url: https://www.ntu.edu.sg/
   - type: Documentation
