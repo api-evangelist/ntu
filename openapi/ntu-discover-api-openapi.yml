@@ -74,6 +74,25 @@ components:
           type: integer
         totalElements:
           type: integer
+    MetadataValue:
+      type: object
+      properties:
+        value:
+          type: string
+        language:
+          type:
+          - string
+          - 'null'
+        authority:
+          type:
+          - string
+          - 'null'
+        confidence:
+          type:
+          - integer
+          - 'null'
+        place:
+          type: integer
     Item:
       type: object
       description: A DSpace item with Dublin Core / DSpace-CRIS metadata.
@@ -143,23 +162,4 @@ components:
                                 $ref: '#/components/schemas/Item'
                 page:
                   $ref: '#/components/schemas/Page'
-    MetadataValue:
-      type: object
-      properties:
-        value:
-          type: string
-        language:
-          type:
-          - string
-          - 'null'
-        authority:
-          type:
-          - string
-          - 'null'
-        confidence:
-          type:
-          - integer
-          - 'null'
-        place:
-          type: integer
 x-operator: tenant
