@@ -16,6 +16,13 @@
       "method": "none"
     },
     {
+      "source": "https://blogs.ntu.edu.sg/feed/",
+      "feed_url": "https://blogs.ntu.edu.sg/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.ntu.edu.sg/life-at-ntu/internet-account-and-policy/contact-service-desk",
       "feed_url": "https://www.ntu.edu.sg/life-at-ntu/internet-account-and-policy/contact-service-desk",
       "title": "",
@@ -23,6 +30,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 5,
+  "fetched": "2026-10-17T14:53:57Z"
 }
